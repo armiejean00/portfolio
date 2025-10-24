@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>Armie's Portfolio</title>
     <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body data-bs-theme="light" class="bg-light">
 
@@ -27,36 +28,118 @@
         transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
     }
 
-    .navbar {transition: all .3s ease; background:#fff !important;}
-    .navbar.fixed-top {box-shadow:0 2px 5px rgba(0,0,0,.1);}
-    .nav-link:hover {color:#007bff !important;}
-    .nav-item.active .nav-link {color:#007bff !important; font-weight:bold; border-bottom:2px solid #007bff;}
-    .section-animate{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
-    .section-animate.visible{opacity:1;transform:translateY(0);}
-    .hero-section{padding:100px 0;background:#f8f9fa;text-align:center;}
-    .hero-section .btn{transition:transform .3s;}
-    .hero-section .btn:hover{transform:scale(1.05);}
-    .section-padding{padding:60px 0;}
-    .gallery-item{position:relative;overflow:hidden;transition:.3s;}
-    .gallery-img{height:300px;object-fit:contain;transition:transform .3s;}
-    .gallery-item:hover .gallery-img{transform:scale(1.1);}
-    .gallery-item:hover .gallery-overlay{opacity:1;}
-    .card{transition:transform .3s,box-shadow .3s;}
-    .card:hover{transform:translateY(-10px);box-shadow:0 4px 15px rgba(0,0,0,.2);}
-    footer{background:#343a40;color:#fff;padding:20px 0;text-align:center;}
-    footer a{color:white;transition:.3s;}
-    footer a:hover{color:#0056b3;text-decoration:underline;}
-    footer .fa-lg{font-size:1.5rem;transition:.3s;}
-    footer .fa-lg:hover{color:#0056b3;transform:scale(1.2);}
-    #to-top{
-        position:fixed;bottom:20px; right:20px;z-index:99;
-        width:52px;height:52px;border:none;border-radius:50%;
-        background:#44434a;color:#fff;display:flex;align-items:center;justify-content:center;
-        cursor:pointer;opacity:0;visibility:hidden;transition:all .4s;
+    .navbar {
+        transition: all .3s ease;
+        background: #fff !important;
+        min-height: 70px;
     }
-    #to-top.show{opacity:1;visibility:visible;}
-    #to-top img{width:24px;height:24px;filter:invert(1);}
-    #to-top:hover{background:#1d1d21;}
+    .navbar.fixed-top { box-shadow: 0 2px 5px rgba(0,0,0,.1); }
+    .nav-link:hover { color: #007bff !important; }
+    .nav-item.active .nav-link { color: #007bff !important; font-weight: bold; border-bottom: 2px solid #007bff; }
+    
+    .section-animate {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .6s ease, transform .6s ease;
+    }
+    .section-animate.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero-section {
+        padding: 130px 0 100px;
+        background: #f8f9fa;
+        text-align: center;
+    }
+    .hero-section .btn {
+        transition: transform .3s;
+    }
+    .hero-section .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        transition: .3s;
+    }
+    .gallery-img {
+        height: 300px;
+        object-fit: contain;
+        transition: transform .3s;
+    }
+    .gallery-item:hover .gallery-img {
+        transform: scale(1.1);
+    }
+
+    .card {
+        transition: transform .3s, box-shadow .3s;
+    }
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    }
+
+    footer {
+        background: #343a40;
+        color: #fff;
+        padding: 20px 0;
+        text-align: center;
+    }
+    footer a {
+        color: white;
+        transition: .3s;
+    }
+    footer a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+    footer .fa-lg {
+        font-size: 1.5rem;
+        transition: .3s;
+    }
+    footer .fa-lg:hover {
+        color: #0056b3;
+        transform: scale(1.2);
+    }
+
+    #to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 99;
+        width: 52px;
+        height: 52px;
+        border: none;
+        border-radius: 50%;
+        background: #44434a;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .4s;
+    }
+    #to-top.show {
+        opacity: 1;
+        visibility: visible;
+    }
+    #to-top img {
+        width: 24px;
+        height: 24px;
+        filter: invert(1);
+    }
+    #to-top:hover {
+        background: #1d1d21;
+    }
+
     .section-title {
         position: relative;
         display: inline-block;
@@ -79,9 +162,12 @@
     .section-title::before { left: -80px; }
     .section-title::after { right: -80px; }
     .section-animate.visible .section-title::before,
-    .section-animate.visible .section-title::after { width: 80px; }
+    .section-animate.visible .section-title::after {
+        width: 80px;
+    }
     .section-animate.visible .section-title::before { left: -100px; }
     .section-animate.visible .section-title::after { right: -100px; }
+
     .wave-divider {
         height: 100px;
         overflow: hidden;
@@ -91,14 +177,21 @@
         transform: translateY(30px);
         transition: opacity .8s ease, transform .8s ease;
     }
-    .wave-divider.visible { opacity: 1; transform: translateY(0); }
+    .wave-divider.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
     .wave-divider svg {
         position: absolute;
         bottom: 0;
         width: 100%;
         height: 100px;
     }
-    .wave-divider .wave { fill: #007bff; opacity: 0.1; }
+    .wave-divider .wave {
+        fill: #007bff;
+        opacity: 0.1;
+    }
+
     .tech-stack {
         position: absolute;
         bottom: 20px;
@@ -117,7 +210,10 @@
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-10px); }
     }
-    .tech-stack-img:hover { transform: translateY(-10px) scale(1.2); }
+    .tech-stack-img:hover {
+        transform: translateY(-10px) scale(1.2);
+    }
+
     .timeline {
         position: relative;
         padding: 20px 0;
@@ -152,25 +248,30 @@
         color: #007bff;
         margin-bottom: 5px;
     }
+
     .alert {
         margin-top: 1rem;
         padding: 1rem;
         border-radius: 8px;
     }
-    .alert-success { background: #d4edda; color: #155724; }
-    .alert-error { background: #f8d7da; color: #721c24; }
+    .alert-success {
+        background: #d4edda;
+        color: #155724;
+    }
+    .alert-error {
+        background: #f8d7da;
+        color: #721c24;
+    }
 
     /* Dark Mode Overrides */
     [data-bs-theme="dark"] {
         background-color: #121212 !important;
         color: #e0e0e0 !important;
     }
-
     [data-bs-theme="dark"] .navbar {
         background-color: #1f1f1f !important;
         border-bottom-color: #333 !important;
     }
-
     [data-bs-theme="dark"] .bg-light,
     [data-bs-theme="dark"] .bg-white,
     [data-bs-theme="dark"] .hero-section,
@@ -178,89 +279,99 @@
     [data-bs-theme="dark"] #contact {
         background-color: #1f1f1f !important;
     }
-
     [data-bs-theme="dark"] .text-dark,
     [data-bs-theme="dark"] .section-title,
     [data-bs-theme="dark"] h1, [data-bs-theme="dark"] h2, [data-bs-theme="dark"] h5 {
         color: #ffffff !important;
     }
-
     [data-bs-theme="dark"] .card {
         background-color: #2c2c2c !important;
         color: #e0e0e0 !important;
         border: 1px solid #444 !important;
     }
-
     [data-bs-theme="dark"] .section-title::before,
     [data-bs-theme="dark"] .section-title::after {
         background: #0d6efd !important;
     }
-
     [data-bs-theme="dark"] .wave-divider .wave {
         fill: #0d6efd !important;
         opacity: 0.2;
     }
-
     [data-bs-theme="dark"] .tech-stack {
         background: rgba(30, 30, 30, 0.9) !important;
         color: #ddd !important;
     }
-
     [data-bs-theme="dark"] .form-control,
     [data-bs-theme="dark"] .form-control:focus {
         background-color: #2c2c2c !important;
         border-color: #555 !important;
         color: #e0e0e0 !important;
     }
-
     [data-bs-theme="dark"] .form-label {
         color: #ccc !important;
     }
-
     [data-bs-theme="dark"] footer {
         background: #1a1a1a !important;
     }
-
     [data-bs-theme="dark"] .alert-success {
         background: #1e3a1e !important;
         color: #a8d5a8 !important;
     }
-
     [data-bs-theme="dark"] .alert-error {
         background: #3a1e1e !important;
         color: #d5a8a8 !important;
     }
-
     [data-bs-theme="dark"] .timeline::before,
     [data-bs-theme="dark"] .timeline-item::before {
         background: #0d6efd !important;
     }
-
     [data-bs-theme="dark"] .nav-link {
         color: #e0e0e0 !important;
     }
-
     [data-bs-theme="dark"] .nav-link:hover,
     [data-bs-theme="dark"] .nav-item.active .nav-link {
         color: #0d6efd !important;
     }
-
     [data-bs-theme="dark"] .btn-outline-primary {
         color: #0d6efd;
         border-color: #0d6efd;
     }
-
     [data-bs-theme="dark"] .btn-outline-primary:hover {
         background-color: #0d6efd;
         color: white;
     }
+
+    /* Pulse ring around profile picture */
+    @keyframes pulseRing {
+        0%   { transform: translate(-50%,-50%) scale(0.9); opacity: .8; }
+        70%  { transform: translate(-50%,-50%) scale(1.05); opacity: .4; }
+        100% { transform: translate(-50%,-50%) scale(0.9); opacity: .8; }
+    }
+
+    /* STAGGERED REVEAL ANIMATION */
+    .word {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: revealWord 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    .word:nth-child(1) { animation-delay: 0.3s; }
+    .word:nth-child(2) { animation-delay: 0.6s; }
+    .word:nth-child(3) { animation-delay: 0.9s; }
+
+    @keyframes revealWord {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ensure hero text stays readable in dark mode */
+    [data-bs-theme="dark"] .hero-section .text-primary { color: #0d6efd !important; }
 </style>
 
 <!-- Navbar with Theme Toggle -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" style="border-bottom-right-radius:10%;border-bottom-left-radius:10%">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" style="min-height: 70px; border-bottom-right-radius:10%; border-bottom-left-radius:10%">
     <div class="container">
         <a href="#" class="navbar-brand">
-            <img src="images/armie.png" alt="A" style="height:2.5em;vertical-align:middle;">
+            <img src="images/armie.png" alt="A" style="height:2em;vertical-align:middle;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -282,58 +393,64 @@
     </div>
 </nav>
 
-<!-- Hero -->
-<section id="home" class="hero-section section-animate">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1>Hello,</h1>
-                <p>I'm Armie, lorem ipsum</p>
-                <div>
-                    <a href="#projects" class="btn btn-primary btn-md me-3">View My Work!</a>
-                    <a href="#contact" class="btn btn-outline-primary btn-md">Contact Me</a>
+<!-- HERO SECTION – STAGGERED REVEAL -->
+<section id="home" class="hero-section section-animate py-5 py-lg-0" style="padding-top: 130px !important;">
+    <div class="container py-5">
+        <div class="row align-items-center justify-content-center justify-content-lg-start">
+
+            <!-- TEXT -->
+            <div class="col-lg-6 order-lg-1 order-2 text-center text-lg-start">
+                <h1 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Hello,</h1>
+
+                <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    I'm <span class="fw-bold text-primary">Armie</span>,<br>
+                    <span class="d-block fw-semibold">
+                        <span class="word">a FullStack Web Developer &</span><br>
+                       
+                        <span class="word">Software Quality Assurance</span>
+                    </span>
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate__animated animate__fadeInUp animate__delay-2s">
+                    <a href="#about" class="btn btn-primary btn-lg px-4">Explore More!</a>
+                    <a href="#contact" class="btn btn-outline-primary btn-lg px-4">Contact Me</a>
                 </div>
             </div>
-            <div class="col-lg-6 text-center">
-                <img src="images/icon.png" alt="Profile Picture" class="img-fluid rounded-circle" style="max-height:300px;">
+
+            <!-- PROFILE IMAGE -->
+            <div class="col-lg-5 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+                <div class="position-relative d-inline-block animate__animated animate__zoomIn animate__delay-1s">
+                    <img src="images/grad-pic.jpg"
+                         alt="Armie"
+                         class="img-fluid rounded-circle shadow-lg"
+                         style="width: 260px; height: 260px; object-fit: cover; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,.15);">
+                    <div class="position-absolute top-50 start-50 translate-middle"
+                         style="width: 300px; height: 300px; border: 4px solid rgba(0,123,255,.15); border-radius:50%; animation: pulseRing 3s infinite;"></div>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- About-->
+<!-- About -->
 <section id="about" class="section-padding section-animate" style="position: relative;">
     <div class="container">
-        <div class="container text-center">
+        <div class="text-center">
             <h2 class="section-title">About Me</h2>
         </div>
         <div class="row">
             <div class="col-lg-6">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, debitis!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero amet suscipit!</p>
-                <div class="bg-light">
-                    <h5 class="mb-3" style="padding-top:10px;padding-left: 10px;">Tech Stack</h5>
-                    <div class="d-flex flex-wrap" style="padding:10px">
-                        <div class="m-2 text-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" 
-                                 class="tech-stack-img" width="50" height="50" alt="HTML5">
-                        </div>
-                        <div class="m-2 text-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" 
-                                 class="tech-stack-img" width="50" height="50" alt="CSS3">
-                        </div>
-                        <div class="m-2 text-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" 
-                                 class="tech-stack-img" width="50" height="50" alt="JavaScript">
-                        </div>
-                        <div class="m-2 text-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
-                                 class="tech-stack-img" width="50" height="50" alt="React">
-                        </div>
-                        <div class="m-2 text-center">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" 
-                                 class="tech-stack-img" width="50" height="50" alt="Node.js">
-                        </div>
+                <div class="bg-light p-3 rounded">
+                    <h5 class="mb-3">Tech Stack</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-stack-img" width="50" height="50" alt="HTML5">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-stack-img" width="50" height="50" alt="CSS3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-stack-img" width="50" height="50" alt="JavaScript">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="tech-stack-img" width="50" height="50" alt="React">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="tech-stack-img" width="50" height="50" alt="Node.js">
                     </div>
                 </div>
             </div>
@@ -365,27 +482,17 @@
 </div>
 
 <!-- Gallery -->
-<!-- Gallery -->
 <section id="gallery" class="section-padding bg-light section-animate">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">Gallery</h2>
-
-            <!-- FILTER BUTTONS -->
             <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-                <button class="btn btn-outline-primary filter-btn active" data-filter="schoolmates">
-                    Classmates
-                </button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="teams">
-                    Teams
-                </button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="certificate">
-                    Certificate
-                </button>
+                <button class="btn btn-outline-primary filter-btn active" data-filter="schoolmates">Classmates</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="teams">Teams</button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="certificate">Certificate</button>
             </div>
         </div>
 
-        <!-- IMAGE GRID -->
         <div class="row g-4" id="gallery-grid">
             <!-- Schoolmates 1-6 -->
             <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
@@ -465,7 +572,7 @@
 <!-- Projects -->
 <section id="projects" class="section-padding section-animate">
     <div class="container">
-        <div class="container text-center">
+        <div class="text-center">
             <h2 class="section-title">Projects</h2>
         </div>
         <div class="row g-4">
@@ -473,19 +580,69 @@
                 <div class="card shadow-sm h-100">
                     <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
                     <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
+                        <p class="card-text flex-grow-1">A terminal games using Python</p>
+                        <div class="mt-3">
+                            <h6 class="fw-bold mb-2">Tech Stack</h6>
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Unioil Loyalty App</h5>
                         <p class="card-text flex-grow-1">A loyalty program with points, rewards, and real-time analytics.</p>
                         <div class="mt-3">
                             <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="Bootstrap">
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Housekeeper Finder</h5>
+                        <p class="card-text flex-grow-1">A loyalty program with points, rewards, and real-time analytics.</p>
+                        <div class="mt-3">
+                            <h6 class="fw-bold mb-2">Tech Stack</h6>
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-lg-4">
+                <div class="card shadow-sm h-100">
+                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">NINTENDO</h5>
+                        <p class="card-text flex-grow-1">A loyalty program with points, rewards, and real-time analytics.</p>
+                        <div class="mt-3">
+                            <h6 class="fw-bold mb-2">Tech Stack</h6>
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
                             </div>
                         </div>
                     </div>
@@ -499,15 +656,11 @@
                         <p class="card-text flex-grow-1">Lost-and-found platform with image recognition and instant notifications.</p>
                         <div class="mt-3">
                             <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="React">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="Node.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
-                                     class="me-2 mb-2 bg-light rounded p-1" width="32" height="32" alt="Express.js">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="MongoDB">
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="me-1" width="32" height="32" alt="React">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="me-1" width="32" height="32" alt="Node.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="me-1 bg-light rounded p-1" width="32" height="32" alt="Express.js">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="me-1" width="32" height="32" alt="MongoDB">
                             </div>
                         </div>
                     </div>
@@ -517,19 +670,15 @@
                 <div class="card shadow-sm h-100">
                     <img src="images/gallery3.jpg" class="card-img-top" alt="ApexHubSpot">
                     <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">ApexHubSpot</h5>
+                        <h5 class="card-title">ApexHubSpot Booking System</h5>
                         <p class="card-text flex-grow-1">Desk-booking system for hybrid workplaces with calendar integration.</p>
                         <div class="mt-3">
                             <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="Angular">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="TypeScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="Firebase">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg"
-                                     class="me-2 mb-2" width="32" height="32" alt="Bootstrap">
+                            <div class="d-flex align-items-center flex-wrap gap-1">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" class="me-1" width="32" height="32" alt="Angular">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="me-1" width="32" height="32" alt="TypeScript">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="me-1" width="32" height="32" alt="Firebase">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
                             </div>
                         </div>
                     </div>
@@ -546,9 +695,9 @@
 </div>
 
 <!-- Contact -->
-<section id="contact" class="section-padding bg-light section-animate ">
+<section id="contact" class="section-padding bg-light section-animate">
     <div class="container">
-        <div class="container text-center">
+        <div class="text-center">
             <h2 class="section-title">Contact Me</h2>
         </div>
         <div class="row justify-content-center">
@@ -585,13 +734,13 @@
 </section>
 
 <!-- Footer -->
-<footer class="bg-primary">
+<footer class="bg-primary text-white">
     <div class="container">
         <p>&copy; 2025 Armie. All rights reserved.</p>
         <p>
-            <a href="https://github.com/em1rah" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-lg mx-2"></i></a>
-            <a href="https://gitlab.com/armiejean00" target="_blank" aria-label="GitLab"><i class="fab fa-gitlab fa-lg mx-2"></i></a>
-            <a href="https://linkedin.com/in/armiejean" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg mx-2"></i></a>
+            <a href="https://github.com/em1rah" target="_blank" aria-label="GitHub" class="text-white"><i class="fab fa-github fa-lg mx-2"></i></a>
+            <a href="https://gitlab.com/armiejean00" target="_blank" aria-label="GitLab" class="text-white"><i class="fab fa-gitlab fa-lg mx-2"></i></a>
+            <a href="https://linkedin.com/in/armiejean" target="_blank" aria-label="LinkedIn" class="text-white"><i class="fab fa-linkedin fa-lg mx-2"></i></a>
         </p>
     </div>
 </footer>
@@ -609,23 +758,22 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    // Gallery Filter
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const items      = document.querySelectorAll('.gallery-item-wrapper');
+    const items = document.querySelectorAll('.gallery-item-wrapper');
 
     const applyFilter = (filter) => {
-        // highlight active button
         filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
 
         items.forEach(item => {
-            const range = item.dataset.range;               // e.g. "1-6"
+            const range = item.dataset.range;
             const [min, max] = range.split('-').map(Number);
-
             let show = false;
-            if (filter === 'schoolmates' && min >= 1 && max <= 6)   show = true;
-            if (filter === 'teams'       && min >= 7 && max <= 9)   show = true;
-            if (filter === 'certificate' && min >=10 && max <=12)   show = true;
 
-            // fade in/out
+            if (filter === 'schoolmates' && min >= 1 && max <= 6) show = true;
+            if (filter === 'teams' && min >= 7 && max <= 9) show = true;
+            if (filter === 'certificate' && min >= 10 && max <= 12) show = true;
+
             if (show) {
                 item.style.display = '';
                 setTimeout(() => item.style.opacity = '1', 10);
@@ -636,17 +784,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
-    });
-
-    // start with Schoolmates (or change to whatever you prefer)
+filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
     applyFilter('schoolmates');
 });
 
-// Initialize EmailJS
+// EmailJS Init
 (function() {
-    emailjs.init("9Tu-1nFVeud2jfPRu"); 
+    emailjs.init("9Tu-1nFVeud2jfPRu");
 })();
 
 // Theme Toggle
@@ -654,44 +798,41 @@ const themeToggle = document.getElementById('theme-toggle');
 const sunIcon = '<i class="fas fa-sun"></i>';
 const moonIcon = '<i class="fas fa-moon"></i>';
 
-// Load saved theme
 const savedTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-bs-theme', savedTheme);
 themeToggle.innerHTML = savedTheme === 'dark' ? moonIcon : sunIcon;
 
-// Toggle function
 themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-    document.documentElement.setAttribute('data-bs-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    themeToggle.innerHTML = newTheme === 'dark' ? moonIcon : sunIcon;
+    const current = document.documentElement.getAttribute('data-bs-theme');
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-bs-theme', next);
+    localStorage.setItem('theme', next);
+    themeToggle.innerHTML = next === 'dark' ? moonIcon : sunIcon;
 });
 
-// Smooth scroll for nav links
-document.querySelectorAll('.nav-link').forEach(a => {
-    a.addEventListener('click', e => {
+// Smooth Scroll
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
         e.preventDefault();
-        const id = a.getAttribute('href').substring(1);
+        const id = link.getAttribute('href').substring(1);
         const target = document.getElementById(id);
-        window.scrollTo({top: target.offsetTop - 70, behavior: 'smooth'});
+        window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
     });
 });
 
-/* Active nav + section animations */
+// Scroll Animations
 window.addEventListener('scroll', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
     const dividers = document.querySelectorAll('.wave-divider');
-    let cur = '';
+    let current = '';
 
     sections.forEach(sec => {
-        if (window.scrollY >= sec.offsetTop - 150) cur = sec.id;
+        if (window.scrollY >= sec.offsetTop - 150) current = sec.id;
     });
 
     navLinks.forEach(l => {
-        l.parentElement.classList.toggle('active', l.getAttribute('href').substring(1) === cur);
+        l.parentElement.classList.toggle('active', l.getAttribute('href').substring(1) === current);
     });
 
     sections.forEach(sec => {
@@ -704,52 +845,48 @@ window.addEventListener('scroll', () => {
     document.getElementById('to-top').classList.toggle('show', window.scrollY > 300);
 });
 
-/* Trigger visible on load */
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.section-animate, .wave-divider').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-    });
-
-    /* Contact form submission with EmailJS */
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const feedback = document.getElementById('form-feedback');
-
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        feedback.classList.add('d-none');
-
-        emailjs.sendForm('service_ud9smm4', 'template_96ioa3m', form)
-            .then(() => {
-                feedback.classList.remove('d-none');
-                feedback.classList.add('alert', 'alert-success');
-                feedback.textContent = 'Message sent successfully!';
-                form.reset();
-            })
-            .catch((error) => {
-                feedback.classList.remove('d-none');
-                feedback.classList.add('alert', 'alert-error');
-                feedback.textContent = 'Failed to send message. Please try again later.';
-                console.error('EmailJS error:', error);
-            })
-            .finally(() => {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Send Message';
-                setTimeout(() => {
-                    feedback.classList.add('d-none');
-                    feedback.classList.remove('alert', 'alert-success', 'alert-error');
-                    feedback.textContent = '';
-                }, 5000);
-            });
-    });
+// Initial visibility
+document.querySelectorAll('.section-animate, .wave-divider').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
 });
 
-/* Back-to-top click */
+// Contact Form
+const form = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const feedback = document.getElementById('form-feedback');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    feedback.classList.add('d-none');
+
+    emailjs.sendForm('service_ud9smm4', 'template_96ioa3m', form)
+        .then(() => {
+            feedback.classList.remove('d-none');
+            feedback.classList.add('alert', 'alert-success');
+            feedback.textContent = 'Message sent successfully!';
+            form.reset();
+        })
+        .catch(err => {
+            feedback.classList.remove('d-none');
+            feedback.classList.add('alert', 'alert-error');
+            feedback.textContent = 'Failed to send message. Please try again.';
+            console.error(err);
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+            setTimeout(() => {
+                feedback.classList.add('d-none');
+                feedback.className = 'd-none';
+            }, 5000);
+        });
+});
+
+// Back to Top
 document.getElementById('to-top').addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 
