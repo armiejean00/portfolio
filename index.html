@@ -365,60 +365,93 @@
 </div>
 
 <!-- Gallery -->
+<!-- Gallery -->
 <section id="gallery" class="section-padding bg-light section-animate">
     <div class="container">
-        <div class="container text-center">
+        <div class="text-center mb-5">
             <h2 class="section-title">Gallery</h2>
+
+            <!-- FILTER BUTTONS -->
+            <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
+                <button class="btn btn-outline-primary filter-btn active" data-filter="schoolmates">
+                    Classmates
+                </button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="teams">
+                    Teams
+                </button>
+                <button class="btn btn-outline-primary filter-btn" data-filter="certificate">
+                    Certificate
+                </button>
+            </div>
         </div>
-        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image6.jpg" alt="Artwork 1" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image5.jpg" alt="Artwork 2" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image4.jpg" alt="Artwork 3" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image1.jpg" alt="Artwork 4" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image2.jpg" alt="Artwork 5" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                            <div class="gallery-item shadow-sm">
-                                <img src="images/image3.jpg" alt="Artwork 6" class="gallery-img rounded w-100">
-                            </div>
-                        </div>
-                    </div>
+
+        <!-- IMAGE GRID -->
+        <div class="row g-4" id="gallery-grid">
+            <!-- Schoolmates 1-6 -->
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/1.jpg" alt="Schoolmate 1" class="gallery-img rounded w-100">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/2.jpg" alt="Schoolmate 2" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/3.jpg" alt="Schoolmate 3" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/4.jpg" alt="Schoolmate 4" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/5.jpg" alt="Schoolmate 5" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/6.jpg" alt="Schoolmate 6" class="gallery-img rounded w-100">
+                </div>
+            </div>
+
+            <!-- Teams 7-9 -->
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="7-9">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/7.jpg" alt="Team 7" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="7-9">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/8.jpg" alt="Team 8" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="7-9">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/9.jpg" alt="Team 9" class="gallery-img rounded w-100">
+                </div>
+            </div>
+
+            <!-- Certificate 10-12 -->
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="10-12">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/10.jpg" alt="Certificate 10" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="10-12">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/11.png" alt="Certificate 11" class="gallery-img rounded w-100">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="10-12">
+                <div class="gallery-item shadow-sm">
+                    <img src="images/12.jpg" alt="Certificate 12" class="gallery-img rounded w-100">
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -575,6 +608,42 @@
         crossorigin="anonymous"></script>
 
 <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items      = document.querySelectorAll('.gallery-item-wrapper');
+
+    const applyFilter = (filter) => {
+        // highlight active button
+        filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+
+        items.forEach(item => {
+            const range = item.dataset.range;               // e.g. "1-6"
+            const [min, max] = range.split('-').map(Number);
+
+            let show = false;
+            if (filter === 'schoolmates' && min >= 1 && max <= 6)   show = true;
+            if (filter === 'teams'       && min >= 7 && max <= 9)   show = true;
+            if (filter === 'certificate' && min >=10 && max <=12)   show = true;
+
+            // fade in/out
+            if (show) {
+                item.style.display = '';
+                setTimeout(() => item.style.opacity = '1', 10);
+            } else {
+                item.style.opacity = '0';
+                setTimeout(() => item.style.display = 'none', 300);
+            }
+        });
+    };
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+    });
+
+    // start with Schoolmates (or change to whatever you prefer)
+    applyFilter('schoolmates');
+});
+
 // Initialize EmailJS
 (function() {
     emailjs.init("9Tu-1nFVeud2jfPRu"); 
