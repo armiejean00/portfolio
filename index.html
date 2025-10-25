@@ -21,7 +21,6 @@
         font-family: 'Poppins', sans-serif;
     }
 
-    /* Smooth Theme Transitions */
     html, body, .navbar, .card, .wave-divider svg, .section-title::before, .section-title::after,
     .form-control, .btn, .tech-stack, footer, .timeline::before, .timeline-item::before,
     .btn-outline-primary, .nav-link:hover, .nav-item.active .nav-link {
@@ -109,37 +108,53 @@
         transform: scale(1.2);
     }
 
-    #to-top {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 99;
-        width: 52px;
-        height: 52px;
-        border: none;
-        border-radius: 50%;
-        background: #44434a;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all .4s;
-    }
-    #to-top.show {
-        opacity: 1;
-        visibility: visible;
-    }
-    #to-top img {
-        width: 24px;
-        height: 24px;
-        filter: invert(1);
-    }
-    #to-top:hover {
-        background: #1d1d21;
-    }
+#to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    width: 52px;
+    height: 52px;
+    border: none;
+    border-radius: 50%;
+    background: #44434a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .4s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+
+#to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#to-top:hover {
+    background: var(--primary) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,.4);
+}
+
+#to-top svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+    transition: stroke .3s ease, transform .3s ease;
+}
+
+[data-theme="dark"] #to-top {
+    background: #222 !important;
+    color: #fff;
+}
+
+[data-theme="dark"] #to-top:hover {
+    background: var(--primary) !important;
+}
 
     .section-title {
         position: relative;
@@ -264,29 +279,12 @@
         color: #721c24;
     }
 
-    /* Pulse ring around profile picture */
     @keyframes pulseRing {
         0%   { transform: translate(-50%,-50%) scale(0.9); opacity: .8; }
         70%  { transform: translate(-50%,-50%) scale(1.05); opacity: .4; }
         100% { transform: translate(-50%,-50%) scale(0.9); opacity: .8; }
     }
 
-    /* STAGGERED REVEAL ANIMATION */
-    .word {
-        display: inline-block;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: revealWord 0.7s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
-    }
-    .word:nth-child(1) { animation-delay: 0.3s; }
-    .word:nth-child(2) { animation-delay: 0.6s; }
-    .word:nth-child(3) { animation-delay: 0.9s; }
-
-    @keyframes revealWord {
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Theme Card Styles */
     .theme-card {
         cursor: pointer;
         border: 2px solid transparent;
@@ -301,11 +299,8 @@
         border-color: var(--primary);
     }
 
-    /* -------------------------------------------------
-       THEME COLOR PALETTES (CSS variables)
-       ------------------------------------------------- */
     :root {
-      --primary:      #007bff;   /* default light / blue */
+      --primary:      #007bff;   
       --primary-bg:   #f8f9fa;
       --wave-fill:    #007bff;
       --wave-opacity: 0.1;
@@ -341,15 +336,13 @@
       --wave-fill:    #f57c00;
     }
 
-    /* === PURE DARK MODE – NO BLUE === */
     [data-theme="dark"] {
-        --primary:      #e0e0e0;      /* light gray accent */
-        --primary-bg:   #0d0d0d;      /* deep black */
+        --primary:      #e0e0e0;      
+        --primary-bg:   #0d0d0d;     
         --wave-fill:    #333333;
         --wave-opacity: 0.15;
     }
 
-    /* Apply variables */
     .btn-primary,
     .btn-outline-primary,
     .section-title::before,
@@ -377,7 +370,6 @@
     .bg-light,
     .bg-white { background-color: var(--primary-bg) !important; }
 
-    /* === DARK MODE OVERRIDES === */
     [data-theme="dark"],
     [data-theme="dark"] .bg-light,
     [data-theme="dark"] .bg-white,
@@ -483,7 +475,6 @@
         color: var(--primary) !important;
     }
 
-    /* === TECH ICONS - EXACT UI + HOVER BACKGROUND === */
     #technologies {
         color: #e2e8f0;
     }
@@ -532,7 +523,6 @@
         50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.8); }
     }
 
-    /* Theme Support */
     [data-theme="light"] #technologies,
     [data-theme="blue"] #technologies,
     [data-theme="yellow"] #technologies,
@@ -582,10 +572,6 @@
     [data-theme="orange"] #tech-bg-icon img {
         filter: brightness(0) opacity(0.05);
     }
-
-    /* ========================================
-       TEXT VISIBILITY FIXES FOR ALL THEMES
-       ======================================== */
 
     .section-title { color: #222 !important; }
     [data-theme="dark"] .section-title,
@@ -822,7 +808,6 @@
     #show-more-btn.less .fa-chevron-down  { transform: rotate(180deg); }
 </style>
 
-<!-- Navbar with Theme Settings -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" style="min-height: 70px; border-bottom-right-radius:10%; border-bottom-left-radius:10%">
     <div class="container">
         <a href="#" class="navbar-brand">
@@ -848,7 +833,6 @@
     </div>
 </nav>
 
-<!-- Theme Settings Modal -->
 <div class="modal fade" id="themeModal" tabindex="-1" aria-labelledby="themeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -1031,10 +1015,9 @@
             <p class="text-muted small">Technologies/Tools I'm familiar with:</p>
         </div>
 
-        <!-- Tech Icons (grouped exactly like your list) -->
         <div class="d-flex flex-wrap justify-content-center gap-3" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
 
-            <!-- Web & Mobile Development -->
+           
             <div class="tech-icon" data-name="HTML5" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5">
             </div>
@@ -1056,22 +1039,22 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React Native">
             </div>
 
-            <!-- API Development & Testing -->
+           
             <div class="tech-icon" data-name="Postman" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman">
             </div>
 
-            <!-- Database Management -->
+        
             <div class="tech-icon" data-name="MySQL" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL">
             </div>
 
-            <!-- Design & Prototyping -->
+
             <div class="tech-icon" data-name="Figma" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
             </div>
 
-            <!-- Version Control & Deployment -->
+         
             <div class="tech-icon" data-name="GitLab" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="GitLab">
             </div>
@@ -1089,7 +1072,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
             </div>
 
-            <!-- Development Tools & Environment -->
+         
             <div class="tech-icon" data-name="VS Code" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code">
             </div>
@@ -1099,14 +1082,9 @@
 
         </div>
 
-        <!-- Floating Label (Top Right) -->
+    
         <div id="tech-floating-label" class="position-absolute top-0 end-0 p-4 text-muted small font-monospace" style="opacity: 0; transition: opacity 0.4s ease; z-index: 1;">
             React
-        </div>
-
-        <!-- Background Icon (Hidden by default) -->
-        <div id="tech-bg-icon" class="position-absolute top-50 start-50 translate-middle opacity-0" style="width: 300px; height: 300px; pointer-events: none; z-index: 0; transition: opacity 0.5s ease;">
-            <img src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
     </div>
 
@@ -1131,7 +1109,7 @@
         </div>
 
         <div class="row g-4" id="gallery-grid">
-            <!-- Schoolmates 1-6 -->
+           
             <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="1-6">
                 <div class="gallery-item shadow-sm">
                     <img src="images/1.jpg" alt="Schoolmate 1" class="gallery-img rounded w-100">
@@ -1163,7 +1141,7 @@
                 </div>
             </div>
 
-            <!-- Teams 7-9 -->
+         
             <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="7-9">
                 <div class="gallery-item shadow-sm">
                     <img src="images/7.jpg" alt="Team 7" class="gallery-img rounded w-100">
@@ -1180,7 +1158,7 @@
                 </div>
             </div>
 
-            <!-- Certificate 10-12 -->
+       
             <div class="col-12 col-sm-6 col-lg-4 gallery-item-wrapper" data-range="10-12">
                 <div class="gallery-item shadow-sm">
                     <img src="images/10.jpg" alt="Certificate 10" class="gallery-img rounded w-100">
@@ -1205,9 +1183,6 @@
         <path class="wave" d="M0,60 C300,0 900,120 1200,60 L1200,120 L0,120 Z"></path>
     </svg>
 </div>
-<!-- ============================================================= -->
-<!--                     PROJECTS SECTION (SHOW MORE)            -->
-<!-- ============================================================= -->
 <section id="projects" class="section-padding section-animate">
     <div class="container">
         <div class="text-center mb-5">
@@ -1432,17 +1407,18 @@
     <div class="container">
         <p>&copy; 2025 Armie. All rights reserved.</p>
         <p>
-            <a href="https://github.com/em1rah" target="_blank" aria-label="GitHub" class="text-white"><i class="fab fa-github fa-lg mx-2"></i></a>
+            <a href="https://github.com/armiejean00" target="_blank" aria-label="GitHub" class="text-white"><i class="fab fa-github fa-lg mx-2"></i></a>
             <a href="https://gitlab.com/armiejean00" target="_blank" aria-label="GitLab" class="text-white"><i class="fab fa-gitlab fa-lg mx-2"></i></a>
             <a href="https://linkedin.com/in/armiejean" target="_blank" aria-label="LinkedIn" class="text-white"><i class="fab fa-linkedin fa-lg mx-2"></i></a>
         </p>
     </div>
 </footer>
 
-<!-- Back-to-Top -->
-<button id="to-top" aria-label="Back to top">
-    <img src="images/backtotop.png" alt="Up"
-         onerror="this.onerror=null;this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj48cGF0aCBkPSJNMTIgMThlLTYgLTZIOXY0bC02LTZ6Ii8+PC9zdmc+'">
+<!-- Back-to-Top Button -->
+<button id="to-top" aria-label="Back to top" class="d-flex align-items-center justify-content-center">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 19V5m-7 7l7-7 7 7"/>
+    </svg>
 </button>
 
 <!-- Scripts -->
@@ -1662,10 +1638,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const hiddenCards = document.querySelectorAll('.hidden-project');
     let   expanded    = false;
 
-    // Initial state – hide everything that has .hidden-project
     hiddenCards.forEach(c => c.classList.remove('show'));
 
-    // Click handler
     btn.addEventListener('click', () => {
         expanded = !expanded;
 
@@ -1673,7 +1647,6 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.toggle('show', expanded);
         });
 
-        // Update button text / icon
         if (expanded) {
             btn.innerHTML = 'Show Less <i class="fas fa-chevron-up ms-2"></i>';
             btn.classList.add('less');
@@ -1682,29 +1655,23 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.remove('less');
         }
 
-        // Scroll a little so the newly-revealed cards are visible
         if (expanded) {
             const firstNew = document.querySelector('.hidden-project.show');
             if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
     });
 
-    // -----------------------------------------------------------------
-    // Keep button colors in sync with the current theme (your CSS vars)
-    // -----------------------------------------------------------------
     const updateBtnTheme = () => {
         btn.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
         btn.style.color       = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
     };
-
-    // Run once on load
     updateBtnTheme();
 
-    // Re-run every time the data-theme attribute changes
+   
     const themeObserver = new MutationObserver(updateBtnTheme);
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 });
-// About Me Carousel Indicator
+
 document.addEventListener('DOMContentLoaded', () => {
     const carousel = document.getElementById('about-carousel');
     const indicator = document.getElementById('slide-indicator');
@@ -1716,7 +1683,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     carousel.addEventListener('slid.bs.carousel', updateIndicator);
-    updateIndicator(); // Initial
+    updateIndicator(); 
 });
 </script>
 
