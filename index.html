@@ -432,7 +432,106 @@
         background-color: var(--primary);
         color: white;
     }
-    
+    /* === TECH ICONS - EXACT UI + HOVER BACKGROUND === */
+#technologies {
+    /* background: #0f172a !important; */
+    color: #e2e8f0;
+}
+
+.tech-icon {
+    width: 58px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: default;
+}
+
+.tech-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: all 0.3s ease;
+}
+
+.tech-icon:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tech-icon:hover img {
+    transform: scale(1.15);
+}
+
+.tech-icon.highlighted {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    border: 2px solid #06b6d4;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.8); }
+}
+
+/* Theme Support */
+[data-theme="light"] #technologies,
+[data-theme="blue"] #technologies,
+[data-theme="yellow"] #technologies,
+[data-theme="violet"] #technologies,
+[data-theme="green"] #technologies,
+[data-theme="orange"] #technologies {
+    background: var(--primary-bg) !important;
+}
+
+[data-theme="light"] .tech-icon,
+[data-theme="blue"] .tech-icon,
+[data-theme="yellow"] .tech-icon,
+[data-theme="violet"] .tech-icon,
+[data-theme="green"] .tech-icon,
+[data-theme="orange"] .tech-icon {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .tech-icon img,
+[data-theme="blue"] .tech-icon img,
+[data-theme="yellow"] .tech-icon img,
+[data-theme="violet"] .tech-icon img,
+[data-theme="green"] .tech-icon img,
+[data-theme="orange"] .tech-icon img {
+    filter: none;
+}
+
+[data-theme="light"] #tech-floating-label,
+[data-theme="blue"] #tech-floating-label,
+[data-theme="yellow"] #tech-floating-label,
+[data-theme="violet"] #tech-floating-label,
+[data-theme="green"] #tech-floating-label,
+[data-theme="orange"] #tech-floating-label {
+    color: #64748b;
+}
+
+[data-theme="dark"] #tech-bg-icon img {
+    filter: brightness(0) invert(1) opacity(0.08);
+}
+
+[data-theme="light"] #tech-bg-icon img,
+[data-theme="blue"] #tech-bg-icon img,
+[data-theme="yellow"] #tech-bg-icon img,
+[data-theme="violet"] #tech-bg-icon img,
+[data-theme="green"] #tech-bg-icon img,
+[data-theme="orange"] #tech-bg-icon img {
+    filter: brightness(0) opacity(0.05);
+}
 
     /* ========================================
        TEXT VISIBILITY FIXES FOR ALL THEMES
@@ -532,6 +631,168 @@
 
     /* 13. Primary Text */
     .text-primary { color: var(--primary) !important; }
+
+    /* -------------------------------------------------
+   TECH ICONS – colour per theme (same look everywhere)
+   ------------------------------------------------- */
+.tech-icon img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+}
+
+/* DARK MODE – force white icons (invert) */
+[data-theme="dark"] .tech-icon img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* ALL OTHER THEMES – keep original colours */
+:root .tech-icon img,
+[data-theme="light"] .tech-icon img,
+[data-theme="blue"] .tech-icon img,
+[data-theme="yellow"] .tech-icon img,
+[data-theme="violet"] .tech-icon img,
+[data-theme="green"] .tech-icon img,
+[data-theme="orange"] .tech-icon img {
+    filter: none !important;
+}
+
+/* HOVER – a little lift for every theme */
+.tech-icon:hover img {
+    transform: scale(1.15);
+}
+
+/* ==== PROJECT SECTION – smaller title & no border ==== */
+#projects .project-title {
+    font-size: 1.65rem;      /* was ~2.2rem+ (h3) → now comfortable */
+    line-height: 1.3;
+    margin-bottom: .5rem;
+}
+#projects .project-img {
+    border: none !important;   /* removes the 8px black frame */
+    border-radius: 1rem;       /* keep the rounded corners you already have */
+}
+
+/* GOOGLE FONTS - Handwritten Style */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+
+/* -------------------------------------------------
+   GRADIENT TEXT – THEME-BASED (replace the old rules)
+   ------------------------------------------------- */
+
+/* 1. Name – subtle gradient that follows the primary colour */
+.gradient-name {
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        color-mix(in srgb, var(--primary) 80%, #fff),
+        color-mix(in srgb, var(--primary) 60%, #aaa)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+/* 2. Role – 6-stop rainbow that starts & ends with the primary colour */
+.gradient-role {
+    /* 6 stops: primary → lighter → accent → lighter → primary → darker */
+    background: linear-gradient(
+        90deg,
+        var(--primary)                 0%,
+        color-mix(in srgb, var(--primary) 80%, #fff)  20%,
+        color-mix(in srgb, var(--primary) 55%, #ff0)  40%,
+        color-mix(in srgb, var(--primary) 55%, #0ff)  60%,
+        color-mix(in srgb, var(--primary) 80%, #fff)  80%,
+        var(--primary)                100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+    font-size: 1.6rem !important;
+}
+
+/* -------------------------------------------------
+   DARK MODE – keep the same logic, just brighter stops
+   ------------------------------------------------- */
+[data-theme="dark"] .gradient-name {
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--primary) 90%, #fff),
+        var(--primary),
+        color-mix(in srgb, var(--primary) 70%, #ccc)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+[data-theme="dark"] .gradient-role {
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--primary) 90%, #fff) 0%,
+        var(--primary)                               20%,
+        color-mix(in srgb, var(--primary) 70%, #ff0) 40%,
+        color-mix(in srgb, var(--primary) 70%, #0ff) 60%,
+        var(--primary)                               80%,
+        color-mix(in srgb, var(--primary) 90%, #fff) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------
+   LIGHT THEMES – a little more vivid accent stops
+   ------------------------------------------------- */
+[data-theme="light"] .gradient-role,
+[data-theme="blue"]   .gradient-role,
+[data-theme="yellow"] .gradient-role,
+[data-theme="violet"] .gradient-role,
+[data-theme="green"]  .gradient-role,
+[data-theme="orange"] .gradient-role {
+    background: linear-gradient(
+        90deg,
+        var(--primary)                 0%,
+        color-mix(in srgb, var(--primary) 75%, #fff) 20%,
+        color-mix(in srgb, var(--primary) 50%, #ff0) 40%,
+        color-mix(in srgb, var(--primary) 50%, #0ff) 60%,
+        color-mix(in srgb, var(--primary) 75%, #fff) 80%,
+        var(--primary)                100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* -------------------------------------------------
+   PROJECT CARD – THEME AWARE
+   ------------------------------------------------- */
+.theme-project-bg {
+    background-color: var(--primary-bg) !important;
+    transition: background-color .3s ease;
+}
+[data-theme="dark"] .theme-project-bg {
+    background-color: #1a1a1a !important;
+}
+
+/* Badge colour follows primary theme */
+.theme-badge {
+    background-color: rgba(var(--primary-rgb, 0,123,255), .15) !important;
+    color: var(--primary) !important;
+    font-weight: 500;
+}
+
+/* Dark-mode text */
+[data-theme="dark"] .theme-project-bg h3 { color: #fff !important; }
+[data-theme="dark"] .theme-project-bg p   { color: #bbb !important; }
+[data-theme="dark"] .theme-project-bg .theme-badge { color: #0d6efd !important; }
+
+/* Optional hover lift */
+.theme-project-bg:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+}
 </style>
 
 <!-- Navbar with Theme Settings -->
@@ -619,29 +880,40 @@
 </div>
 
 <!-- HERO SECTION – STAGGERED REVEAL -->
+<!-- HERO SECTION – UPDATED WITH IMAGE-STYLE TEXT -->
 <section id="home" class="hero-section section-animate py-5 py-lg-0" style="padding-top: 130px !important;">
     <div class="container py-5">
         <div class="row align-items-center justify-content-center">
 
             <!-- TEXT (Left on lg+, Centered on smaller) -->
             <div class="col-lg-6 text-center text-lg-start order-lg-1 order-2">
-                <h5 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Hello,  I'm <span class="fw-bold text-primary">Armie</span><br></h5>
+                <!-- Name with gradient -->
+                <h1 class="display-3 fw-bold mb-2 animate__animated animate__fadeInDown" style="line-height: 1.1;">
+                    Hello, I'm <span class="gradient-name">Armie</span>
+                </h1>
 
-                <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                    
-                    <span class="d-block fw-semibold">
-                        <span class="word">a FullStack Web Developer &</span><br>
-                        <span class="word">Software Quality Assurance</span>
+                <!-- FullStack Role with Gradient Palette -->
+                <p class="lead mb-3 animate__animated animate__fadeInUp animate__delay-1s" style="font-size: 1.5rem; line-height: 1.4;">
+                    <span class="gradient-role d-block">
+                        FullStack Web Developer &<br>
+                        Software Quality Assurance
                     </span>
                 </p>
 
+              
+
+                <!-- CTA Buttons -->
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="#about" class="btn btn-primary btn-lg px-4" style="border: none;"><span style="color:white;">Explore More!</span></a>
-                    <a href="#contact" class="btn btn-outline-primary btn-lg px-4" style="background-color: transparent;"><span style="color:white">Contact Me</span></a>
+                    <a href="#about" class="btn btn-primary btn-lg px-4" style="border: none;">
+                        <span style="color:white;">Explore More!</span>
+                    </a>
+                    <a href="#contact" class="btn btn-outline-primary btn-lg px-4" style="background-color: transparent;">
+                        <span style="color:white">Contact Me</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- PROFILE IMAGE (Right-aligned, with margin) -->
+            <!-- PROFILE IMAGE (Right-aligned, with pulse ring) -->
             <div class="col-lg-6 order-lg-2 order-1 text-center text-lg-end mb-4 mb-lg-0">
                 <div class="position-relative d-inline-block animate__animated animate__zoomIn animate__delay-1s">
                     <img src="images/grad-pic.jpg"
@@ -666,16 +938,9 @@
             <div class="col-lg-6">
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, debitis!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero amet suscipit!</p>
-                <div class="bg-light p-3 rounded">
-                    <h5 class="mb-3">Tech Stack</h5>
-                    <div class="d-flex flex-wrap gap-2">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="tech-stack-img" width="50" height="50" alt="HTML5">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="tech-stack-img" width="50" height="50" alt="CSS3">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="tech-stack-img" width="50" height="50" alt="JavaScript">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="tech-stack-img" width="50" height="50" alt="React">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="tech-stack-img" width="50" height="50" alt="Node.js">
-                    </div>
-                </div>
+                
+
+
             </div>
             <div class="col-lg-6">
                 <h5 class="mb-3">My Journey</h5>
@@ -697,6 +962,92 @@
         </div>
     </div>
 </section>
+   <div class="container position-relative z-3">
+        <div class="text-center mb-4">
+           
+            <p class="text-muted small">Technologies I've familiar with.</p>
+        </div>
+
+        <!-- Tech Icons (grouped exactly like your list) -->
+        <div class="d-flex flex-wrap justify-content-center gap-3" style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
+
+            <!-- Web & Mobile Development -->
+            <div class="tech-icon" data-name="HTML5" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5">
+            </div>
+            <div class="tech-icon" data-name="CSS3" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3">
+            </div>
+            
+            <div class="tech-icon" data-name="JavaScript" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JS">
+            </div>
+            <div class="tech-icon" data-name="PHP" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP">
+            </div>
+            <div class="tech-icon" data-name="Laravel" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel">
+            </div>
+           
+            <div class="tech-icon" data-name="React Native" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React Native">
+            </div>
+
+            <!-- API Development & Testing -->
+            <div class="tech-icon" data-name="RESTful API" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman">
+            </div>
+
+            <!-- Database Management -->
+            <div class="tech-icon" data-name="MySQL" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL">
+            </div>
+
+            <!-- Design & Prototyping -->
+            <div class="tech-icon" data-name="Figma" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma">
+            </div>
+
+            <!-- Version Control & Deployment -->
+            <div class="tech-icon" data-name="GitLab" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gitlab/gitlab-original.svg" alt="GitLab">
+            </div>
+            <div class="tech-icon" data-name="GitHub" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" style="filter: brightness(0) invert(1);">
+            </div>
+            
+            <div class="tech-icon" data-name="Netlify" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/netlify/netlify-original.svg" alt="Netlify">
+            </div>
+            <div class="tech-icon" data-name="Vercel" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" alt="Vercel">
+            </div>
+            <div class="tech-icon" data-name="Docker" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
+            </div>
+
+            <!-- Development Tools & Environment -->
+            <div class="tech-icon" data-name="VS Code" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code">
+            </div>
+            <div class="tech-icon" data-name="Ubuntu" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/ubuntu/ubuntu-original.svg" alt="Ubuntu">
+            </div>
+
+        </div>
+
+        <!-- Floating Label (Top Right) -->
+        <div id="tech-floating-label" class="position-absolute top-0 end-0 p-4 text-muted small font-monospace" style="opacity: 0; transition: opacity 0.4s ease; z-index: 1;">
+            React
+        </div>
+
+        <!-- Background Icon (Hidden by default) -->
+        <div id="tech-bg-icon" class="position-absolute top-50 start-50 translate-middle opacity-0" style="width: 300px; height: 300px; pointer-events: none; z-index: 0; transition: opacity 0.5s ease;">
+            <img src="" alt="" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+    </div>
+
+
 
 <div class="wave-divider">
     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -791,119 +1142,97 @@
         <path class="wave" d="M0,60 C300,0 900,120 1200,60 L1200,120 L0,120 Z"></path>
     </svg>
 </div>
-
-<!-- Projects -->
+<!-- ============================================================= -->
+<!--                     PROJECTS SECTION (EXACT UI)             -->
+<!-- ============================================================= -->
 <section id="projects" class="section-padding section-animate">
     <div class="container">
-        <div class="text-center">
+        <div class="text-center mb-5">
             <h2 class="section-title">Projects</h2>
         </div>
-        <div class="row g-4">
-            <!-- Repeat project cards as in your original code -->
-            <div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="row g-5 justify-content-center">
+
+            <div class="col-12 mt-0">
+    <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+        <!-- Screenshot (no border) -->
+        <div class="position-relative flex-shrink-0">
+            <img src="images/booking-system.jpg"
+                 alt="PMBACS screenshot"
+                 class="img-fluid rounded-4 shadow-lg project-img"
+                 style="max-width:340px;">
+        </div>
+
+        <!-- Text + badges + button -->
+        <div class="flex-grow-1 text-lg-start text-center">
+            <h3 class="fw-bold project-title">
+                ApexHubSpot Booking System
+            </h3>
+            <p class="text-muted mb-3">
+A Desk Booking System 
+            </p>
+
+            <!-- Tech badges -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge theme-badge">Laravel</span>
+                <span class="badge theme-badge">HTML</span>
+                <span class="badge theme-badge">CSS</span>
+                <span class="badge theme-badge">JavaScript</span>
+                 <span class="badge theme-badge">MySQL</span>
+                 <span class="badge theme-badge">Vercel</span>
             </div>
-            <div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><div class="col-lg-4">
-                <div class="card shadow-sm h-100">
-                    <img src="images/gallery3.jpg" class="card-img-top" alt="Unioil Loyalty App">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">RFID-Integrated Student Attendance Management System</h5>
-                        <p class="card-text flex-grow-1">A terminal games using Python</p>
-                        <div class="mt-3">
-                            <h6 class="fw-bold mb-2">Tech Stack</h6>
-                            <div class="d-flex align-items-center flex-wrap gap-1">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="me-1" width="32" height="32" alt="HTML5">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="me-1" width="32" height="32" alt="CSS3">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="me-1" width="32" height="32" alt="JavaScript">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" class="me-1" width="32" height="32" alt="Bootstrap">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+            <!-- ==== VIEW LIVE BUTTON ==== -->
+            <a href="https://drive.google.com/file/d/1t1AsPAcDW0EYRL5csVOmNeXLHXCmOu50/view?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-sm d-inline-flex align-items-center gap-2">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Video</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="col-12 mt-0">
+    <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+        <!-- Screenshot (no border) -->
+        <div class="position-relative flex-shrink-0">
+            <img src="images/risams.png"
+                 alt="PMBACS screenshot"
+                 class="img-fluid rounded-4 shadow-lg project-img"
+                 style="max-width:340px;">
+        </div>
+
+        <!-- Text + badges + button -->
+        <div class="flex-grow-1 text-lg-start text-center">
+            <h3 class="fw-bold project-title">
+                RFID-Integrated Student Attendance Management System (RISAMS)
+            </h3>
+            <p class="text-muted mb-3">
+                RISAMS is a web application that records and manages student attendance via RFID, subject-level absences/tardiness, and notifies guardians of premise entry/exit.
+            </p>
+
+            <!-- Tech badges -->
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge theme-badge">React + Vite</span>
+                <span class="badge theme-badge">Tailwind CSS</span>
+                <span class="badge theme-badge">Supabase</span>
+                <span class="badge theme-badge">Vercel</span>
             </div>
+
+            <!-- ==== VIEW LIVE BUTTON ==== -->
+            <a href="https://risams.vercel.app/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-sm d-inline-flex align-items-center gap-2">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Live</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+
         </div>
     </div>
 </section>
@@ -918,7 +1247,7 @@
 <section id="contact" class="section-padding bg-light section-animate">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-title">Get in Touch</h2>
+            <h2 class="section-title">Contact Me</h2>
         </div>
 
         <div class="row g-4 justify-content-center">
@@ -1182,6 +1511,34 @@ form.addEventListener('submit', e => {
 // Back to Top
 document.getElementById('to-top').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+/* -------------------------------------------------
+   HOVER BACKGROUND ICON + FLOATING LABEL (fixed)
+   ------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    const techIcons   = document.querySelectorAll('.tech-icon');
+    const bgIcon      = document.getElementById('tech-bg-icon');
+    const bgImg       = bgIcon.querySelector('img');
+    const floatingLbl = document.getElementById('tech-floating-label');
+
+    techIcons.forEach(icon => {
+        const name    = icon.dataset.name;
+        const iconUrl = icon.dataset.icon;
+
+        icon.addEventListener('mouseenter', () => {
+            // 1. Show the large icon
+            bgImg.src = iconUrl;               // set source
+            bgIcon.style.opacity = '1';        // fade-in
+            // 2. Show the name in the top-right corner
+            floatingLbl.textContent = name;
+            floatingLbl.style.opacity = '0.7';
+        });
+
+        icon.addEventListener('mouseleave', () => {
+            bgIcon.style.opacity = '0';
+            floatingLbl.style.opacity = '0';
+        });
+    });
 });
 </script>
 
