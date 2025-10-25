@@ -11,9 +11,9 @@
           crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <title>Armie's Portfolio</title>
+    <title>Armie Miranda - Portfolio</title>
     <link rel="icon" type="image/png" href="images/armie.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
 </head>
 <body data-bs-theme="light" class="bg-light">
 
@@ -793,6 +793,19 @@
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(0,0,0,.15);
 }
+
+/* Hide projects that are not in the first 2 */
+.hidden-project { display: none; }
+
+/* Optional smooth fade-in when they appear */
+.hidden-project.show { 
+    display: block; 
+    animation: fadeIn .4s ease forwards; 
+}
+@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:none;} }
+
+/* Button text/icon switch */
+#show-more-btn.less .fa-chevron-down  { transform: rotate(180deg); }
 </style>
 
 <!-- Navbar with Theme Settings -->
@@ -812,10 +825,10 @@
                 <li class="nav-item"><a href="#projects" class="nav-link"><span style="color:white">Projects</span></a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link"><span style="color:white">Contact</span></a></li>
                 <li class="nav-item ms-3">
-                    <button id="theme-settings-btn" class="btn btn-outline-secondary btn-sm d-flex align-items-center" aria-label="Theme settings">
-                        <i class="fas fa-palette"></i>
-                    </button>
-                </li>
+    <button id="theme-settings-btn" class="btn btn-sm d-flex align-items-center justify-content-center p-1" aria-label="Theme settings" style="width: 40px; height: 40px;">
+        <img src="images/theme.png" alt="Theme" style="width: 24px; height: 24px;">
+    </button>
+</li>
             </ul>
         </div>
     </div>
@@ -965,7 +978,7 @@
    <div class="container position-relative z-3">
         <div class="text-center mb-4">
            
-            <p class="text-muted small">Technologies I've familiar with.</p>
+            <p class="text-muted small">Technologies/Tools I'm familiar with:</p>
         </div>
 
         <!-- Tech Icons (grouped exactly like your list) -->
@@ -994,7 +1007,7 @@
             </div>
 
             <!-- API Development & Testing -->
-            <div class="tech-icon" data-name="RESTful API" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg">
+            <div class="tech-icon" data-name="Postman" data-icon="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg" alt="Postman">
             </div>
 
@@ -1143,7 +1156,7 @@
     </svg>
 </div>
 <!-- ============================================================= -->
-<!--                     PROJECTS SECTION (EXACT UI)             -->
+<!--                     PROJECTS SECTION (SHOW MORE)            -->
 <!-- ============================================================= -->
 <section id="projects" class="section-padding section-animate">
     <div class="container">
@@ -1151,88 +1164,138 @@
             <h2 class="section-title">Projects</h2>
         </div>
 
-        <div class="row g-5 justify-content-center">
-
-            <div class="col-12 mt-0">
-    <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
-        <!-- Screenshot (no border) -->
-        <div class="position-relative flex-shrink-0">
-            <img src="images/booking-system.jpg"
-                 alt="PMBACS screenshot"
-                 class="img-fluid rounded-4 shadow-lg project-img"
-                 style="max-width:340px;">
-        </div>
-
-        <!-- Text + badges + button -->
-        <div class="flex-grow-1 text-lg-start text-center">
-            <h3 class="fw-bold project-title">
-                ApexHubSpot Booking System
-            </h3>
-            <p class="text-muted mb-3">
-A Desk Booking System 
-            </p>
-
-            <!-- Tech badges -->
-            <div class="d-flex flex-wrap gap-2 mb-3">
-                <span class="badge theme-badge">Laravel</span>
-                <span class="badge theme-badge">HTML</span>
-                <span class="badge theme-badge">CSS</span>
-                <span class="badge theme-badge">JavaScript</span>
-                 <span class="badge theme-badge">MySQL</span>
-                 <span class="badge theme-badge">Vercel</span>
+        <div class="row g-5 justify-content-center" id="project-list">
+            <!-- ==== PROJECT 1 ==== -->
+            <div class="col-12 project-card mt-0">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+                    <div class="position-relative flex-shrink-0">
+                        <img src="images/booking-system.jpg"
+                             alt="ApexHubSpot Booking System"
+                             class="img-fluid rounded-4 shadow-lg project-img"
+                             style="max-width:340px;">
+                    </div>
+                    <div class="flex-grow-1 text-lg-start text-center">
+                        <h3 class="fw-bold project-title">ApexHubSpot Booking System</h3>
+                        <p class="text-muted mb-3">A Desk Booking System</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge theme-badge">Laravel</span>
+                            <span class="badge theme-badge">HTML</span>
+                            <span class="badge theme-badge">CSS</span>
+                            <span class="badge theme-badge">JavaScript</span>
+                            <span class="badge theme-badge">MySQL</span>
+                            <span class="badge theme-badge">Vercel</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1t1AsPAcDW0EYRL5csVOmNeXLHXCmOu50/view?usp=sharing"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-sm d-inline-flex align-items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> View Video
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- ==== VIEW LIVE BUTTON ==== -->
-            <a href="https://drive.google.com/file/d/1t1AsPAcDW0EYRL5csVOmNeXLHXCmOu50/view?usp=sharing"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-sm d-inline-flex align-items-center gap-2">
-                <i class="fas fa-external-link-alt"></i>
-                <span>View Video</span>
-            </a>
-        </div>
-    </div>
-</div>
-<div class="col-12 mt-0">
-    <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
-        <!-- Screenshot (no border) -->
-        <div class="position-relative flex-shrink-0">
-            <img src="images/risams.png"
-                 alt="PMBACS screenshot"
-                 class="img-fluid rounded-4 shadow-lg project-img"
-                 style="max-width:340px;">
-        </div>
-
-        <!-- Text + badges + button -->
-        <div class="flex-grow-1 text-lg-start text-center">
-            <h3 class="fw-bold project-title">
-                RFID-Integrated Student Attendance Management System (RISAMS)
-            </h3>
-            <p class="text-muted mb-3">
-                RISAMS is a web application that records and manages student attendance via RFID, subject-level absences/tardiness, and notifies guardians of premise entry/exit.
-            </p>
-
-            <!-- Tech badges -->
-            <div class="d-flex flex-wrap gap-2 mb-3">
-                <span class="badge theme-badge">React + Vite</span>
-                <span class="badge theme-badge">Tailwind CSS</span>
-                <span class="badge theme-badge">Supabase</span>
-                <span class="badge theme-badge">Vercel</span>
+            <!-- ==== PROJECT 2 ==== -->
+            <div class="col-12 project-card mt-0">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+                    <div class="position-relative flex-shrink-0">
+                        <img src="images/booking-system.jpg"
+                             alt="ApexHubSpot Booking System"
+                             class="img-fluid rounded-4 shadow-lg project-img"
+                             style="max-width:340px;">
+                    </div>
+                    <div class="flex-grow-1 text-lg-start text-center">
+                        <h3 class="fw-bold project-title">ApexHubSpot Booking System</h3>
+                        <p class="text-muted mb-3">A Desk Booking System</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge theme-badge">Laravel</span>
+                            <span class="badge theme-badge">HTML</span>
+                            <span class="badge theme-badge">CSS</span>
+                            <span class="badge theme-badge">JavaScript</span>
+                            <span class="badge theme-badge">MySQL</span>
+                            <span class="badge theme-badge">Vercel</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1t1AsPAcDW0EYRL5csVOmNeXLHXCmOu50/view?usp=sharing"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-sm d-inline-flex align-items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> View Video
+                        </a>
+                    </div>
+                </div>
             </div>
 
-            <!-- ==== VIEW LIVE BUTTON ==== -->
-            <a href="https://risams.vercel.app/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-sm d-inline-flex align-items-center gap-2">
-                <i class="fas fa-external-link-alt"></i>
-                <span>View Live</span>
-            </a>
+            <!-- ==== PROJECT 3 (hidden initially) ==== -->
+            <div class="col-12 project-card hidden-project mt-0">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+                    <div class="position-relative flex-shrink-0">
+                        <img src="images/booking-system.jpg"
+                             alt="ApexHubSpot Booking System"
+                             class="img-fluid rounded-4 shadow-lg project-img"
+                             style="max-width:340px;">
+                    </div>
+                    <div class="flex-grow-1 text-lg-start text-center">
+                        <h3 class="fw-bold project-title">ApexHubSpot Booking System</h3>
+                        <p class="text-muted mb-3">A Desk Booking System</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge theme-badge">Laravel</span>
+                            <span class="badge theme-badge">HTML</span>
+                            <span class="badge theme-badge">CSS</span>
+                            <span class="badge theme-badge">JavaScript</span>
+                            <span class="badge theme-badge">MySQL</span>
+                            <span class="badge theme-badge">Vercel</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1t1AsPAcDW0EYRL5csVOmNeXLHXCmOu50/view?usp=sharing"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-sm d-inline-flex align-items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> View Video
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==== PROJECT 4 (hidden initially) ==== -->
+            <div class="col-12 project-card hidden-project mt-0">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+                    <div class="position-relative flex-shrink-0">
+                        <img src="images/risams.png"
+                             alt="RISAMS"
+                             class="img-fluid rounded-4 shadow-lg project-img"
+                             style="max-width:340px;">
+                    </div>
+                    <div class="flex-grow-1 text-lg-start text-center">
+                        <h3 class="fw-bold project-title">
+                            RFID-Integrated Student Attendance Management System (RISAMS)
+                        </h3>
+                        <p class="text-muted mb-3">
+                            Capstone Project: RISAMS is a web application that records and manages
+                            student attendance via RFID, subject-level absences/tardiness, and notifies
+                            guardians of premise entry/exit.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge theme-badge">React + Vite</span>
+                            <span class="badge theme-badge">Tailwind CSS</span>
+                            <span class="badge theme-badge">Supabase</span>
+                            <span class="badge theme-badge">Vercel</span>
+                        </div>
+                        <a href="https://risams.vercel.app/"
+                           target="_blank" rel="noopener noreferrer"
+                           class="btn btn-sm d-inline-flex align-items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> View Live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==== ADD MORE HIDDEN PROJECTS HERE ==== -->
+            <!-- Just copy a .project-card block, give it class "hidden-project" and fill the content. -->
         </div>
-    </div>
-</div>
 
-
+        <!-- SHOW MORE / SHOW LESS BUTTON -->
+        <div class="text-center mt-4">
+            <button id="show-more-btn"
+                    class="btn px-5 py-2"
+                    style="border-color:var(--primary);">
+                Show More <i class="fas fa-chevron-down ms-2"></i>
+            </button>
         </div>
     </div>
 </section>
@@ -1539,6 +1602,57 @@ document.addEventListener('DOMContentLoaded', () => {
             floatingLbl.style.opacity = '0';
         });
     });
+});
+
+/* -------------------------------------------------
+   SHOW MORE / SHOW LESS – PROJECTS
+   ------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    const btn         = document.getElementById('show-more-btn');
+    const hiddenCards = document.querySelectorAll('.hidden-project');
+    let   expanded    = false;
+
+    // Initial state – hide everything that has .hidden-project
+    hiddenCards.forEach(c => c.classList.remove('show'));
+
+    // Click handler
+    btn.addEventListener('click', () => {
+        expanded = !expanded;
+
+        hiddenCards.forEach(card => {
+            card.classList.toggle('show', expanded);
+        });
+
+        // Update button text / icon
+        if (expanded) {
+            btn.innerHTML = 'Show Less <i class="fas fa-chevron-up ms-2"></i>';
+            btn.classList.add('less');
+        } else {
+            btn.innerHTML = 'Show More <i class="fas fa-chevron-down ms-2"></i>';
+            btn.classList.remove('less');
+        }
+
+        // Scroll a little so the newly-revealed cards are visible
+        if (expanded) {
+            const firstNew = document.querySelector('.hidden-project.show');
+            if (firstNew) firstNew.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    });
+
+    // -----------------------------------------------------------------
+    // Keep button colors in sync with the current theme (your CSS vars)
+    // -----------------------------------------------------------------
+    const updateBtnTheme = () => {
+        btn.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+        btn.style.color       = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+    };
+
+    // Run once on load
+    updateBtnTheme();
+
+    // Re-run every time the data-theme attribute changes
+    const themeObserver = new MutationObserver(updateBtnTheme);
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 });
 </script>
 
