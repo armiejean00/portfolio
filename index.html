@@ -12,8 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>Armie Miranda - Portfolio</title>
-    <link rel="icon" type="image/png" href="images/armie.png">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/> -->
+    <link rel="icon" type="image/png" href="images/theme.png">
 </head>
 <body data-bs-theme="light" class="bg-light">
 
@@ -98,7 +97,7 @@
         transition: .3s;
     }
     footer a:hover {
-        color: #0056b3;
+        color: #cccccc;
         text-decoration: underline;
     }
     footer .fa-lg {
@@ -106,7 +105,7 @@
         transition: .3s;
     }
     footer .fa-lg:hover {
-        color: #0056b3;
+        color: #cccccc;
         transform: scale(1.2);
     }
 
@@ -342,11 +341,12 @@
       --wave-fill:    #f57c00;
     }
 
+    /* === PURE DARK MODE – NO BLUE === */
     [data-theme="dark"] {
-      --primary:      #0d6efd;
-      --primary-bg:   #1f1f1f;
-      --wave-fill:    #0d6efd;
-      --wave-opacity: 0.2;
+        --primary:      #e0e0e0;      /* light gray accent */
+        --primary-bg:   #0d0d0d;      /* deep black */
+        --wave-fill:    #333333;
+        --wave-opacity: 0.15;
     }
 
     /* Apply variables */
@@ -357,7 +357,6 @@
     .timeline::before,
     .timeline-item::before,
     .nav-link:hover,
-    /* .nav-item.active .nav-link, */
     .wave-divider .wave,
     .bg-primary,
     .navbar.fixed-top { background-color: var(--primary) !important; }
@@ -368,7 +367,7 @@
     .section-title,
     .timeline-year,
     .nav-link:hover,
-    .nav-item.active .nav-link { color: var(--primary) !important; }
+    .nav, .nav-item.active .nav-link { color: var(--primary) !important; }
 
     .btn-outline-primary { border-color: var(--primary) !important; }
 
@@ -378,166 +377,216 @@
     .bg-light,
     .bg-white { background-color: var(--primary-bg) !important; }
 
-    /* Dark mode overrides */
+    /* === DARK MODE OVERRIDES === */
+    [data-theme="dark"],
+    [data-theme="dark"] .bg-light,
+    [data-theme="dark"] .bg-white,
+    [data-theme="dark"] .hero-section,
+    [data-theme="dark"] #gallery,
+    [data-theme="dark"] #contact,
+    [data-theme="dark"] .theme-project-bg {
+        background-color: var(--primary-bg) !important;
+    }
     [data-theme="dark"] {
-        background-color: #121212 !important;
         color: #e0e0e0 !important;
     }
+
     [data-theme="dark"] .navbar {
-        background-color: #1f1f1f !important;
-        border-bottom-color: #333 !important;
+        background-color: #111 !important;
+        border-bottom: 1px solid #222 !important;
     }
-    [data-theme="dark"] .card {
-        background-color: #2c2c2c !important;
-        color: #e0e0e0 !important;
-        border: 1px solid #444 !important;
-    }
-    [data-theme="dark"] .text-dark,
-    [data-theme="dark"] .section-title,
-    [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h5 {
-        color: #ffffff !important;
-    }
-    [data-theme="dark"] .tech-stack {
-        background: rgba(30, 30, 30, 0.9) !important;
+    [data-theme="dark"] .navbar .nav-link {
         color: #ddd !important;
     }
+    [data-theme="dark"] .navbar .nav-link:hover,
+    [data-theme="dark"] .nav-item.active .nav-link {
+        color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .card {
+        background-color: #1a1a1a !important;
+        color: #e0e0e0 !important;
+        border: 1px solid #333 !important;
+    }
+
+    [data-theme="dark"] .section-title,
+    [data-theme="dark"] h1, [data-theme="dark"] h2,
+    [data-theme="dark"] h3, [data-theme="dark"] h4,
+    [data-theme="dark"] h5, [data-theme="dark"] h6 {
+        color: #ffffff !important;
+    }
+
+    [data-theme="dark"] .text-muted { color: #aaaaaa !important; }
+    [data-theme="dark"] .timeline-item,
+    [data-theme="dark"] .timeline-year { color: #bbbbbb !important; }
+    [data-theme="dark"] .timeline-year { color: var(--primary) !important; }
+
     [data-theme="dark"] .form-control,
     [data-theme="dark"] .form-control:focus {
-        background-color: #2c2c2c !important;
-        border-color: #555 !important;
+        background-color: #222 !important;
+        border-color: #444 !important;
         color: #e0e0e0 !important;
     }
-    [data-theme="dark"] .form-label {
-        color: #ccc !important;
-    }
-    [data-theme="dark"] footer {
-        background: #1a1a1a !important;
-    }
-    [data-theme="dark"] .alert-success {
-        background: #1e3a1e !important;
-        color: #a8d5a8 !important;
-    }
-    [data-theme="dark"] .alert-error {
-        background: #3a1e1e !important;
-        color: #d5a8a8 !important;
-    }
-    [data-theme="dark"] .nav-link {
-        color: #e0e0e0 !important;
-    }
+    [data-theme="dark"] .form-label { color: #cccccc !important; }
+    [data-theme="dark"] .form-control::placeholder { color: #777 !important; }
+
+    [data-theme="dark"] .btn-primary,
     [data-theme="dark"] .btn-outline-primary {
-        color: var(--primary);
-        border-color: var(--primary);
+        background-color: var(--primary) !important;
+        border-color: var(--primary) !important;
+        color: #0d0d0d !important;
     }
     [data-theme="dark"] .btn-outline-primary:hover {
-        background-color: var(--primary);
-        color: white;
+        background-color: var(--primary) !important;
+        color: #0d0d0d !important;
     }
+
+    [data-theme="dark"] .alert-success { background:#1e3a1e !important; color:#a8d5a8 !important; }
+    [data-theme="dark"] .alert-error   { background:#3a1e1e !important; color:#d5a8a8 !important; }
+
+    [data-theme="dark"] footer {
+        background: #111 !important;
+    }
+
+    [data-theme="dark"] #technologies { background: var(--primary-bg) !important; }
+    [data-theme="dark"] .tech-icon {
+        background: rgba(255,255,255,.07);
+        border: 1px solid rgba(255,255,255,.12);
+    }
+    [data-theme="dark"] .tech-icon img { filter: brightness(0) invert(1) !important; }
+
+    [data-theme="dark"] .filter-btn {
+        color: #ccc !important;
+        border-color: #666 !important;
+    }
+    [data-theme="dark"] .filter-btn.active {
+        color: var(--primary) !important;
+        background-color: rgba(255,255,255,.1) !important;
+        border-color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] .gradient-name,
+    [data-theme="dark"] .gradient-role {
+        background: linear-gradient(90deg, #ffffff, var(--primary), #cccccc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .theme-badge {
+        background-color: rgba(255,255,255,.12) !important;
+        color: var(--primary) !important;
+    }
+
+    [data-theme="dark"] #show-more-btn {
+        border-color: var(--primary) !important;
+        color: var(--primary) !important;
+    }
+
     /* === TECH ICONS - EXACT UI + HOVER BACKGROUND === */
-#technologies {
-    /* background: #0f172a !important; */
-    color: #e2e8f0;
-}
+    #technologies {
+        color: #e2e8f0;
+    }
 
-.tech-icon {
-    width: 58px;
-    height: 58px;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: default;
-}
+    .tech-icon {
+        width: 58px;
+        height: 58px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: default;
+    }
 
-.tech-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    transition: all 0.3s ease;
-}
+    .tech-icon img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        transition: all 0.3s ease;
+    }
 
-.tech-icon:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+    .tech-icon:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
 
-.tech-icon:hover img {
-    transform: scale(1.15);
-}
+    .tech-icon:hover img {
+        transform: scale(1.15);
+    }
 
-.tech-icon.highlighted {
-    background: linear-gradient(135deg, #06b6d4, #0891b2);
-    border: 2px solid #06b6d4;
-    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-    animation: pulse 2s infinite;
-}
+    .tech-icon.highlighted {
+        background: linear-gradient(135deg, #06b6d4, #0891b2);
+        border: 2px solid #06b6d4;
+        box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        animation: pulse 2s infinite;
+    }
 
-@keyframes pulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
-    50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.8); }
-}
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.5); }
+        50% { box-shadow: 0 0 30px rgba(6, 182, 212, 0.8); }
+    }
 
-/* Theme Support */
-[data-theme="light"] #technologies,
-[data-theme="blue"] #technologies,
-[data-theme="yellow"] #technologies,
-[data-theme="violet"] #technologies,
-[data-theme="green"] #technologies,
-[data-theme="orange"] #technologies {
-    background: var(--primary-bg) !important;
-}
+    /* Theme Support */
+    [data-theme="light"] #technologies,
+    [data-theme="blue"] #technologies,
+    [data-theme="yellow"] #technologies,
+    [data-theme="violet"] #technologies,
+    [data-theme="green"] #technologies,
+    [data-theme="orange"] #technologies {
+        background: var(--primary-bg) !important;
+    }
 
-[data-theme="light"] .tech-icon,
-[data-theme="blue"] .tech-icon,
-[data-theme="yellow"] .tech-icon,
-[data-theme="violet"] .tech-icon,
-[data-theme="green"] .tech-icon,
-[data-theme="orange"] .tech-icon {
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
+    [data-theme="light"] .tech-icon,
+    [data-theme="blue"] .tech-icon,
+    [data-theme="yellow"] .tech-icon,
+    [data-theme="violet"] .tech-icon,
+    [data-theme="green"] .tech-icon,
+    [data-theme="orange"] .tech-icon {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
 
-[data-theme="light"] .tech-icon img,
-[data-theme="blue"] .tech-icon img,
-[data-theme="yellow"] .tech-icon img,
-[data-theme="violet"] .tech-icon img,
-[data-theme="green"] .tech-icon img,
-[data-theme="orange"] .tech-icon img {
-    filter: none;
-}
+    [data-theme="light"] .tech-icon img,
+    [data-theme="blue"] .tech-icon img,
+    [data-theme="yellow"] .tech-icon img,
+    [data-theme="violet"] .tech-icon img,
+    [data-theme="green"] .tech-icon img,
+    [data-theme="orange"] .tech-icon img {
+        filter: none;
+    }
 
-[data-theme="light"] #tech-floating-label,
-[data-theme="blue"] #tech-floating-label,
-[data-theme="yellow"] #tech-floating-label,
-[data-theme="violet"] #tech-floating-label,
-[data-theme="green"] #tech-floating-label,
-[data-theme="orange"] #tech-floating-label {
-    color: #64748b;
-}
+    [data-theme="light"] #tech-floating-label,
+    [data-theme="blue"] #tech-floating-label,
+    [data-theme="yellow"] #tech-floating-label,
+    [data-theme="violet"] #tech-floating-label,
+    [data-theme="green"] #tech-floating-label,
+    [data-theme="orange"] #tech-floating-label {
+        color: #64748b;
+    }
 
-[data-theme="dark"] #tech-bg-icon img {
-    filter: brightness(0) invert(1) opacity(0.08);
-}
+    [data-theme="dark"] #tech-bg-icon img {
+        filter: brightness(0) invert(1) opacity(0.08);
+    }
 
-[data-theme="light"] #tech-bg-icon img,
-[data-theme="blue"] #tech-bg-icon img,
-[data-theme="yellow"] #tech-bg-icon img,
-[data-theme="violet"] #tech-bg-icon img,
-[data-theme="green"] #tech-bg-icon img,
-[data-theme="orange"] #tech-bg-icon img {
-    filter: brightness(0) opacity(0.05);
-}
+    [data-theme="light"] #tech-bg-icon img,
+    [data-theme="blue"] #tech-bg-icon img,
+    [data-theme="yellow"] #tech-bg-icon img,
+    [data-theme="violet"] #tech-bg-icon img,
+    [data-theme="green"] #tech-bg-icon img,
+    [data-theme="orange"] #tech-bg-icon img {
+        filter: brightness(0) opacity(0.05);
+    }
 
     /* ========================================
        TEXT VISIBILITY FIXES FOR ALL THEMES
        ======================================== */
 
-    /* 1. Section Titles */
     .section-title { color: #222 !important; }
     [data-theme="dark"] .section-title,
     [data-theme="dark"] h1, [data-theme="dark"] h2,
@@ -546,17 +595,15 @@
         color: #ffffff !important;
     }
 
-    /* 2. Timeline */
     .timeline-item { color: #6c757d; }
     [data-theme="dark"] .timeline-item,
     [data-theme="dark"] .timeline-year {
         color: #bbbbbb !important;
     }
     [data-theme="dark"] .timeline-year {
-        color: #0d6efd !important;
+        color: var(--primary) !important;
     }
 
-    /* 3. Form Labels & Placeholders */
     .form-label { color: #212529; }
     [data-theme="dark"] .form-label { color: #dddddd !important; }
     [data-theme="dark"] .form-control::placeholder {
@@ -564,11 +611,9 @@
         opacity: 1;
     }
 
-    /* 4. Muted Text */
     .text-muted { color: #6c757d !important; }
     [data-theme="dark"] .text-muted { color: #aaaaaa !important; }
 
-    /* 5. Card Text */
     .card { color: #212529; }
     [data-theme="dark"] .card,
     [data-theme="dark"] .card-title,
@@ -576,7 +621,6 @@
         color: #e0e0e0 !important;
     }
 
-    /* 6. Hero Text */
     .hero-section p,
     .hero-section .lead,
     .hero-section .fw-semibold {
@@ -588,23 +632,20 @@
         color: #e0e0e0 !important;
     }
 
-    /* 7. About Paragraphs */
     #about p { color: #444; }
     [data-theme="dark"] #about p { color: #cccccc !important; }
 
-    /* 8. Gallery Filter Buttons */
     .filter-btn { color: #495057; border-color: #495057; }
     [data-theme="dark"] .filter-btn {
         color: #cccccc !important;
         border-color: #666666 !important;
     }
     [data-theme="dark"] .filter-btn.active {
-        color: #0d6efd !important;
-        background-color: rgba(13,110,253,.2) !important;
-        border-color: #0d6efd !important;
+        color: var(--primary) !important;
+        background-color: rgba(255,255,255,.1) !important;
+        border-color: var(--primary) !important;
     }
 
-    /* 9. Contact Card Text */
     #contact .card p,
     #contact .card h6 { color: #212529; }
     [data-theme="dark"] #contact .card p,
@@ -612,208 +653,181 @@
         color: #e0e0e0 !important;
     }
 
-    /* 10. Navbar Links */
     [data-theme="dark"] .navbar .nav-link {
         color: #e0e0e0 !important;
     }
     [data-theme="dark"] .navbar .nav-link:hover,
     [data-theme="dark"] .navbar .nav-item.active .nav-link {
-        color: #0d6efd !important;
+        color: var(--primary) !important;
     }
 
-    /* 11. Footer */
     footer p, footer a { color: #ffffff !important; }
-    footer a:hover { color: #80bdff !important; }
+    footer a:hover { color: #cccccc !important; }
 
-    /* 12. Tech Stack Heading */
     .tech-stack h5 { color: #212529; }
     [data-theme="dark"] .tech-stack h5 { color: #ffffff !important; }
 
-    /* 13. Primary Text */
     .text-primary { color: var(--primary) !important; }
 
-    /* -------------------------------------------------
-   TECH ICONS – colour per theme (same look everywhere)
-   ------------------------------------------------- */
-.tech-icon img {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-    transition: all 0.3s ease;
-}
+    .tech-icon img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+        transition: all 0.3s ease;
+    }
 
-/* DARK MODE – force white icons (invert) */
-[data-theme="dark"] .tech-icon img {
-    filter: brightness(0) invert(1) !important;
-}
+    [data-theme="dark"] .tech-icon img {
+        filter: brightness(0) invert(1) !important;
+    }
 
-/* ALL OTHER THEMES – keep original colours */
-:root .tech-icon img,
-[data-theme="light"] .tech-icon img,
-[data-theme="blue"] .tech-icon img,
-[data-theme="yellow"] .tech-icon img,
-[data-theme="violet"] .tech-icon img,
-[data-theme="green"] .tech-icon img,
-[data-theme="orange"] .tech-icon img {
-    filter: none !important;
-}
+    :root .tech-icon img,
+    [data-theme="light"] .tech-icon img,
+    [data-theme="blue"] .tech-icon img,
+    [data-theme="yellow"] .tech-icon img,
+    [data-theme="violet"] .tech-icon img,
+    [data-theme="green"] .tech-icon img,
+    [data-theme="orange"] .tech-icon img {
+        filter: none !important;
+    }
 
-/* HOVER – a little lift for every theme */
-.tech-icon:hover img {
-    transform: scale(1.15);
-}
+    .tech-icon:hover img {
+        transform: scale(1.15);
+    }
 
-/* ==== PROJECT SECTION – smaller title & no border ==== */
-#projects .project-title {
-    font-size: 1.65rem;      /* was ~2.2rem+ (h3) → now comfortable */
-    line-height: 1.3;
-    margin-bottom: .5rem;
-}
-#projects .project-img {
-    border: none !important;   /* removes the 8px black frame */
-    border-radius: 1rem;       /* keep the rounded corners you already have */
-}
+    #projects .project-title {
+        font-size: 1.65rem;
+        line-height: 1.3;
+        margin-bottom: .5rem;
+    }
+    #projects .project-img {
+        border: none !important;
+        border-radius: 1rem;
+    }
 
-/* GOOGLE FONTS - Handwritten Style */
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap');
 
-/* -------------------------------------------------
-   GRADIENT TEXT – THEME-BASED (replace the old rules)
-   ------------------------------------------------- */
+    .gradient-name {
+        background: linear-gradient(
+            90deg,
+            var(--primary),
+            color-mix(in srgb, var(--primary) 80%, #fff),
+            color-mix(in srgb, var(--primary) 60%, #aaa)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
 
-/* 1. Name – subtle gradient that follows the primary colour */
-.gradient-name {
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        color-mix(in srgb, var(--primary) 80%, #fff),
-        color-mix(in srgb, var(--primary) 60%, #aaa)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 800;
-    letter-spacing: -1px;
-}
+    .gradient-role {
+        background: linear-gradient(
+            90deg,
+            var(--primary)                 0%,
+            color-mix(in srgb, var(--primary) 80%, #fff)  20%,
+            color-mix(in srgb, var(--primary) 55%, #ff0)  40%,
+            color-mix(in srgb, var(--primary) 55%, #0ff)  60%,
+            color-mix(in srgb, var(--primary) 80%, #fff)  80%,
+            var(--primary)                100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+        font-size: 1.6rem !important;
+    }
 
-/* 2. Role – 6-stop rainbow that starts & ends with the primary colour */
-.gradient-role {
-    /* 6 stops: primary → lighter → accent → lighter → primary → darker */
-    background: linear-gradient(
-        90deg,
-        var(--primary)                 0%,
-        color-mix(in srgb, var(--primary) 80%, #fff)  20%,
-        color-mix(in srgb, var(--primary) 55%, #ff0)  40%,
-        color-mix(in srgb, var(--primary) 55%, #0ff)  60%,
-        color-mix(in srgb, var(--primary) 80%, #fff)  80%,
-        var(--primary)                100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-    font-size: 1.6rem !important;
-}
+    [data-theme="dark"] .gradient-name {
+        background: linear-gradient(
+            90deg,
+            #ffffff,
+            var(--primary),
+            #cccccc
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-/* -------------------------------------------------
-   DARK MODE – keep the same logic, just brighter stops
-   ------------------------------------------------- */
-[data-theme="dark"] .gradient-name {
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--primary) 90%, #fff),
-        var(--primary),
-        color-mix(in srgb, var(--primary) 70%, #ccc)
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    [data-theme="dark"] .gradient-role {
+        background: linear-gradient(
+            90deg,
+            #ffffff 0%,
+            var(--primary) 20%,
+            color-mix(in srgb, var(--primary) 70%, #ff0) 40%,
+            color-mix(in srgb, var(--primary) 70%, #0ff) 60%,
+            var(--primary) 80%,
+            #ffffff 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-[data-theme="dark"] .gradient-role {
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--primary) 90%, #fff) 0%,
-        var(--primary)                               20%,
-        color-mix(in srgb, var(--primary) 70%, #ff0) 40%,
-        color-mix(in srgb, var(--primary) 70%, #0ff) 60%,
-        var(--primary)                               80%,
-        color-mix(in srgb, var(--primary) 90%, #fff) 100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    [data-theme="light"] .gradient-role,
+    [data-theme="blue"]   .gradient-role,
+    [data-theme="yellow"] .gradient-role,
+    [data-theme="violet"] .gradient-role,
+    [data-theme="green"]  .gradient-role,
+    [data-theme="orange"] .gradient-role {
+        background: linear-gradient(
+            90deg,
+            var(--primary)                 0%,
+            color-mix(in srgb, var(--primary) 75%, #fff) 20%,
+            color-mix(in srgb, var(--primary) 50%, #ff0) 40%,
+            color-mix(in srgb, var(--primary) 50%, #0ff) 60%,
+            color-mix(in srgb, var(--primary) 75%, #fff) 80%,
+            var(--primary)                100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 
-/* -------------------------------------------------
-   LIGHT THEMES – a little more vivid accent stops
-   ------------------------------------------------- */
-[data-theme="light"] .gradient-role,
-[data-theme="blue"]   .gradient-role,
-[data-theme="yellow"] .gradient-role,
-[data-theme="violet"] .gradient-role,
-[data-theme="green"]  .gradient-role,
-[data-theme="orange"] .gradient-role {
-    background: linear-gradient(
-        90deg,
-        var(--primary)                 0%,
-        color-mix(in srgb, var(--primary) 75%, #fff) 20%,
-        color-mix(in srgb, var(--primary) 50%, #ff0) 40%,
-        color-mix(in srgb, var(--primary) 50%, #0ff) 60%,
-        color-mix(in srgb, var(--primary) 75%, #fff) 80%,
-        var(--primary)                100%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+    #about .card {
+        transition: none !important;
+    }
+    #about .card:hover {
+        transform: none !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24) !important;
+    }
 
-/* -------------------------------------------------
-   PROJECT CARD – THEME AWARE
-   ------------------------------------------------- */
-.theme-project-bg {
-    background-color: var(--primary-bg) !important;
-    transition: background-color .3s ease;
-}
-[data-theme="dark"] .theme-project-bg {
-    background-color: #1a1a1a !important;
-}
+    .theme-project-bg {
+        background-color: var(--primary-bg) !important;
+        transition: background-color .3s ease;
+    }
+    [data-theme="dark"] .theme-project-bg {
+        background-color: #1a1a1a !important;
+    }
 
-/* Badge colour follows primary theme */
-.theme-badge {
-    background-color: rgba(var(--primary-rgb, 0,123,255), .15) !important;
-    color: var(--primary) !important;
-    font-weight: 500;
-}
+    .theme-badge {
+        background-color: rgba(var(--primary-rgb, 0,123,255), .15) !important;
+        color: var(--primary) !important;
+        font-weight: 500;
+    }
 
-/* Dark-mode text */
-[data-theme="dark"] .theme-project-bg h3 { color: #fff !important; }
-[data-theme="dark"] .theme-project-bg p   { color: #bbb !important; }
-[data-theme="dark"] .theme-project-bg .theme-badge { color: #0d6efd !important; }
+    [data-theme="dark"] .theme-project-bg h3 { color: #fff !important; }
+    [data-theme="dark"] .theme-project-bg p   { color: #bbb !important; }
+    [data-theme="dark"] .theme-project-bg .theme-badge { color: var(--primary) !important; }
 
-/* Optional hover lift */
-.theme-project-bg:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.15);
-}
+    .theme-project-bg:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    }
 
-/* Hide projects that are not in the first 2 */
-.hidden-project { display: none; }
+    .hidden-project { display: none; }
+    .hidden-project.show { 
+        display: block; 
+        animation: fadeIn .4s ease forwards; 
+    }
+    @keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:none;} }
 
-/* Optional smooth fade-in when they appear */
-.hidden-project.show { 
-    display: block; 
-    animation: fadeIn .4s ease forwards; 
-}
-@keyframes fadeIn { from {opacity:0; transform:translateY(10px);} to {opacity:1; transform:none;} }
-
-/* Button text/icon switch */
-#show-more-btn.less .fa-chevron-down  { transform: rotate(180deg); }
+    #show-more-btn.less .fa-chevron-down  { transform: rotate(180deg); }
 </style>
 
 <!-- Navbar with Theme Settings -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" style="min-height: 70px; border-bottom-right-radius:10%; border-bottom-left-radius:10%">
     <div class="container">
         <a href="#" class="navbar-brand">
-    <img id="logo" src="images/armie.png" alt="A" style="height:2em;vertical-align:middle;">
-</a>
+            <img id="logo" src="images/armie.png" alt="A" style="height:2em;vertical-align:middle;">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -825,10 +839,10 @@
                 <li class="nav-item"><a href="#projects" class="nav-link"><span style="color:white">Projects</span></a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link"><span style="color:white">Contact</span></a></li>
                 <li class="nav-item ms-3">
-    <button id="theme-settings-btn" class="btn btn-sm d-flex align-items-center justify-content-center p-1" aria-label="Theme settings" style="width: 40px; height: 40px;">
-        <img src="images/theme.png" alt="Theme" style="width: 24px; height: 24px;">
-    </button>
-</li>
+                    <button id="theme-settings-btn" class="btn btn-sm d-flex align-items-center justify-content-center p-1" aria-label="Theme settings" style="width: 40px; height: 40px;">
+                        <img src="images/theme.png" alt="Theme" style="width: 24px; height: 24px;">
+                    </button>
+                </li>
             </ul>
         </div>
     </div>
@@ -882,7 +896,7 @@
           </div>
           <div class="col-6 col-md-4">
             <div class="theme-card p-3 text-center" data-theme="dark">
-              <div class="theme-preview mb-2" style="background:#212121; height:50px; border:2px solid #90caf9;"></div>
+              <div class="theme-preview mb-2" style="background:#0d0d0d; height:50px; border:2px solid #e0e0e0;"></div>
               <small class="d-block">Dark</small>
             </div>
           </div>
@@ -892,30 +906,20 @@
   </div>
 </div>
 
-<!-- HERO SECTION – STAGGERED REVEAL -->
-<!-- HERO SECTION – UPDATED WITH IMAGE-STYLE TEXT -->
+<!-- HERO SECTION -->
 <section id="home" class="hero-section section-animate py-5 py-lg-0" style="padding-top: 130px !important;">
     <div class="container py-5">
         <div class="row align-items-center justify-content-center">
-
-            <!-- TEXT (Left on lg+, Centered on smaller) -->
             <div class="col-lg-6 text-center text-lg-start order-lg-1 order-2">
-                <!-- Name with gradient -->
                 <h1 class="display-3 fw-bold mb-2 animate__animated animate__fadeInDown" style="line-height: 1.1;">
                     Hello, I'm <span class="gradient-name">Armie</span>
                 </h1>
-
-                <!-- FullStack Role with Gradient Palette -->
                 <p class="lead mb-3 animate__animated animate__fadeInUp animate__delay-1s" style="font-size: 1.5rem; line-height: 1.4;">
                     <span class="gradient-role d-block">
                         FullStack Web Developer &<br>
                         Software Quality Assurance
                     </span>
                 </p>
-
-              
-
-                <!-- CTA Buttons -->
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate__animated animate__fadeInUp animate__delay-2s">
                     <a href="#about" class="btn btn-primary btn-lg px-4" style="border: none;">
                         <span style="color:white;">Explore More!</span>
@@ -925,8 +929,6 @@
                     </a>
                 </div>
             </div>
-
-            <!-- PROFILE IMAGE (Right-aligned, with pulse ring) -->
             <div class="col-lg-6 order-lg-2 order-1 text-center text-lg-end mb-4 mb-lg-0">
                 <div class="position-relative d-inline-block animate__animated animate__zoomIn animate__delay-1s">
                     <img src="images/grad-pic.jpg"
@@ -934,47 +936,95 @@
                          class="img-fluid rounded-circle shadow-lg"
                          style="width: 260px; height: 260px; object-fit: cover; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,.15);">
                     <div class="position-absolute top-50 start-50 translate-middle"
-                         style="width: 300px; height: 300px; border: 4px solid rgba(0,123,255,.15); border-radius:50%; animation: pulseRing 3s infinite;"></div>
+                         style="width: 300px; height: 300px; border: 4px solid rgba(255,255,255,.15); border-radius:50%; animation: pulseRing 3s infinite;"></div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
+
 <!-- About -->
 <section id="about" class="section-padding section-animate" style="position: relative;">
-    <div class="container">
-        <div class="text-center">
+    <div class="container-fluid">
+        <div class="text-center mb-0">
             <h2 class="section-title">About Me</h2>
         </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, debitis!</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum libero amet suscipit!</p>
-                
-
-
+        <div class="row align-items-center mt-0">
+            <div class="col-lg-5 text-center">
+                <div class="position-relative d-inline-block">
+                    <img src="images/grad.jpg" alt="Armie"
+                         class="img-fluid rounded shadow-lg"
+                         style="width: 70%; max-width: 380px; height: auto; object-fit: cover; border: 6px solid var(--primary-bg);">
+                    <div class="position-absolute top-50 start-50 translate-middle"
+                         style="width: 90%; height: 110%; border: 3px solid rgba(255,255,255,.15); border-radius: 1rem; animation: pulseRing 3s infinite;"></div>
+                </div>
             </div>
             <div class="col-lg-6">
-                <h5 class="mb-3">My Journey</h5>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2019</div>
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2020</div>
-                        <p>Lorem ipsum dolor sit amet consectetur.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+                <div class="card shadow-sm border-0 h-100 theme-project-bg" style="border-radius: 1.2rem; overflow: hidden;">
+                    <div class="card-body p-4 p-md-5 d-flex flex-column h-100">
+                        <div id="about-carousel" class="carousel slide flex-grow-1 d-flex flex-column">
+                            <div class="carousel-inner flex-grow-1">
+                                <div class="carousel-item active">
+                                    <h4 class="mb-3 fw-bold text-primary">Hi, I'm Armie!</h4>
+                                    <p class="mb-3">A Bachelor of Science in Information Systems graduate from La Verdad Christian College - Apalit, Pampanga.</p>
+                                    <p class="mb-3">I love learning new things and I am eager to develop my skills through practical challenges and meaningful work experiences that promote professional development.</p>
+                                </div>
+                                <div class="carousel-item">
+                                    <h4 class="mb-3 fw-bold text-primary">My Favorites</h4>
+                                    <ul class="list-unstyled mb-3">
+                                        <li class="d-flex align-items-center mb-2"><i class="fas fa-code text-primary me-2"></i> <strong>Framework:</strong> Laravel + React</li>
+                                        <li class="d-flex align-items-center mb-2"><i class="fas fa-paint-brush text-primary me-2"></i> <strong>Design Tool:</strong> Figma</li>
+                                        <li class="d-flex align-items-center mb-2"><i class="fas fa-terminal text-primary me-2"></i> <strong>Editor:</strong> VS Code</li>
+                                        <li class="d-flex align-items-center mb-2"><i class="fas fa-coffee text-primary me-2"></i> <strong>Drink:</strong> Iced Latte</li>
+                                        <li class="d-flex align-items-center mb-2"><i class="fas fa-music text-primary me-2"></i> <strong>Music:</strong> Lo-fi & OPM</li>
+                                    </ul>
+                                </div>
+                                <div class="carousel-item">
+                                    <h4 class="mb-3 fw-bold text-primary">Academic Achievements</h4>
+                                    <div class="d-flex flex-column gap-3">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-medal text-warning fa-lg me-3"></i>
+                                            <div>
+                                                <strong class="d-block">3× President's Lister</strong>
+                                                <small class="text-muted">with Certificate</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-medal text-primary fa-lg me-3"></i>
+                                            <div>
+                                                <strong class="d-block">5× Dean's Lister</strong>
+                                                <small class="text-muted">with Certificate</small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-graduation-cap text-success fa-lg me-3"></i>
+                                            <div>
+                                                <strong class="d-block">Graduated Magna Cum Laude</strong>
+                                                <small class="text-muted">Bachelor of Science in Information Systems</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 d-flex justify-content-between">
+                                <button class="btn btn-sm px-4 d-flex align-items-center gap-2" type="button" data-bs-target="#about-carousel" data-bs-slide="prev">
+                                    <i class="fas fa-chevron-left"></i> Prev
+                                </button>
+                                <div class="d-flex gap-1 align-items-center">
+                                    <span class="badge bg-primary rounded-pill" id="slide-indicator">1 / 3</span>
+                                </div>
+                                <button class="btn btn-sm px-4 d-flex align-items-center gap-2" type="button" data-bs-target="#about-carousel" data-bs-slide="next">
+                                    Next <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
    <div class="container position-relative z-3">
         <div class="text-center mb-4">
            
@@ -1653,6 +1703,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Re-run every time the data-theme attribute changes
     const themeObserver = new MutationObserver(updateBtnTheme);
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+});
+// About Me Carousel Indicator
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('about-carousel');
+    const indicator = document.getElementById('slide-indicator');
+
+    const updateIndicator = () => {
+        const activeIndex = Array.from(carousel.querySelectorAll('.carousel-item'))
+            .findIndex(item => item.classList.contains('active')) + 1;
+        indicator.textContent = `${activeIndex} / 3`;
+    };
+
+    carousel.addEventListener('slid.bs.carousel', updateIndicator);
+    updateIndicator(); // Initial
 });
 </script>
 
