@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>Armie's Portfolio</title>
-    <link rel="icon" type="image/png" href="images/icon.png">
+    <link rel="icon" type="image/png" href="images/armie.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body data-bs-theme="light" class="bg-light">
@@ -537,8 +537,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm fixed-top" style="min-height: 70px; border-bottom-right-radius:10%; border-bottom-left-radius:10%">
     <div class="container">
         <a href="#" class="navbar-brand">
-            <img src="images/armie.png" alt="A" style="height:2em;vertical-align:middle;">
-        </a>
+    <img id="logo" src="images/armie.png" alt="A" style="height:2em;vertical-align:middle;">
+</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -620,14 +620,14 @@
 <!-- HERO SECTION – STAGGERED REVEAL -->
 <section id="home" class="hero-section section-animate py-5 py-lg-0" style="padding-top: 130px !important;">
     <div class="container py-5">
-        <div class="row align-items-center justify-content-center justify-content-lg-start">
+        <div class="row align-items-center justify-content-center">
 
-            <!-- TEXT -->
-            <div class="col-lg-6 order-lg-1 order-2 text-center text-lg-start">
-                <h5 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Hello,</h5>
+            <!-- TEXT (Left on lg+, Centered on smaller) -->
+            <div class="col-lg-6 text-center text-lg-start order-lg-1 order-2">
+                <h5 class="display-4 fw-bold mb-3 animate__animated animate__fadeInDown">Hello,  I'm <span class="fw-bold text-primary">Armie</span><br></h5>
 
                 <p class="lead mb-4 animate__animated animate__fadeInUp animate__delay-1s">
-                    I'm <span class="fw-bold text-primary">Armie</span>,<br>
+                    
                     <span class="d-block fw-semibold">
                         <span class="word">a FullStack Web Developer &</span><br>
                         <span class="word">Software Quality Assurance</span>
@@ -635,18 +635,17 @@
                 </p>
 
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="#about" class="btn btn-primary btn-lg px-4"><span style="color:white">Explore More!</span></a>
+                    <a href="#about" class="btn btn-primary btn-lg px-4" style="border: none;"><span style="color:white;">Explore More!</span></a>
                     <a href="#contact" class="btn btn-outline-primary btn-lg px-4" style="background-color: transparent;"><span style="color:white">Contact Me</span></a>
                 </div>
             </div>
 
-            <!-- PROFILE IMAGE -->
-            <div class="col-lg-5 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+            <!-- PROFILE IMAGE (Right-aligned, with margin) -->
+            <div class="col-lg-6 order-lg-2 order-1 text-center text-lg-end mb-4 mb-lg-0">
                 <div class="position-relative d-inline-block animate__animated animate__zoomIn animate__delay-1s">
                     <img src="images/grad-pic.jpg"
                          alt="Armie"
                          class="img-fluid rounded-circle shadow-lg"
-estone
                          style="width: 260px; height: 260px; object-fit: cover; border: 6px solid #fff; box-shadow: 0 10px 30px rgba(0,0,0,.15);">
                     <div class="position-absolute top-50 start-50 translate-middle"
                          style="width: 300px; height: 300px; border: 4px solid rgba(0,123,255,.15); border-radius:50%; animation: pulseRing 3s infinite;"></div>
@@ -656,7 +655,6 @@ estone
         </div>
     </div>
 </section>
-
 <!-- About -->
 <section id="about" class="section-padding section-animate" style="position: relative;">
     <div class="container">
@@ -944,7 +942,7 @@ estone
                                 </div>
                                 <div class="col-12">
                                     <div id="form-feedback" class="d-none mt-3"></div>
-                                    <button type="submit" class="btn btn-primary w-100 mt-3" id="submit-btn">
+                                    <button type="submit" class="btn btn-primary w-100 mt-3" id="submit-btn" style="border: none;">
                                         <i class="fas fa-paper-plane me-2" style="color:white"></i><span style="color:white">Send Message</span>
                                     </button>
                                 </div>
@@ -1039,6 +1037,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterBtns.forEach(btn => btn.addEventListener('click', () => applyFilter(btn.dataset.filter)));
     applyFilter('schoolmates');
+});
+
+// Logo Switcher for Dark Mode
+const logo = document.getElementById('logo');
+const lightLogo = 'images/armie.png';
+const darkLogo = 'images/armie-dark.png';
+
+// Function to update logo
+function updateLogo() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    logo.src = isDark ? darkLogo : lightLogo;
+}
+
+// Run on page load
+updateLogo();
+
+// Run every time theme changes
+const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+            updateLogo();
+        }
+    });
+});
+
+// Observe changes to data-theme attribute
+observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme']
 });
 
 // EmailJS Init
