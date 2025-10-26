@@ -647,6 +647,36 @@
         color: var(--primary) !important;
     }
 
+    /* Filter Button Active State - Theme Adaptive */
+.filter-btn {
+    transition: all 0.3s ease !important;
+    font-weight: 500;
+}
+
+.filter-btn.active {
+    background-color: var(--primary) !important;
+    color: #fff !important;
+    border-color: var(--primary) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.filter-btn:not(.active):hover {
+    background-color: rgba(var(--primary-rgb, 0,123,255), 0.1) !important;
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Dark mode override for active button text */
+[data-theme="dark"] .filter-btn.active {
+    color: #000 !important; /* Ensures contrast on light primary in dark mode */
+}
+
+/* Ensure primary has enough contrast in dark mode */
+[data-theme="dark"] .filter-btn.active {
+    background-color: var(--primary) !important;
+    color: #0d0d0d !important;
+}
+
     footer p, footer a { color: #ffffff !important; }
     footer a:hover { color: #cccccc !important; }
 
@@ -900,8 +930,8 @@
                 </h1>
                 <p class="lead mb-3 animate__animated animate__fadeInUp animate__delay-1s" style="font-size: 1.5rem; line-height: 1.4;">
                     <span class="gradient-role d-block">
-                        FullStack Web Developer &<br>
-                        Software Quality Assurance
+                        Aspiring FullStack Web Developer<br>
+                        
                     </span>
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start animate__animated animate__fadeInUp animate__delay-2s">
@@ -1107,10 +1137,10 @@
         <div class="text-center mb-5">
             <h2 class="section-title">Gallery</h2>
             <div class="d-flex justify-content-center gap-2 mb-4 flex-wrap">
-                <button class="btn btn-outline-primary filter-btn active" data-filter="schoolmates"><span style="color:white">Classmates</span></button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="teams"><span style="color:white">Teams</span></button>
-                <button class="btn btn-outline-primary filter-btn" data-filter="certificate"><span style="color:white">Certificate</span></button>
-            </div>
+    <button class="btn filter-btn active" data-filter="schoolmates">Classmates</button>
+    <button class="btn filter-btn" data-filter="teams">Teams</button>
+    <button class="btn filter-btn" data-filter="certificate">Certificate</button>
+</div>
         </div>
 
         <div class="row g-4" id="gallery-grid">
@@ -1206,7 +1236,7 @@
                              style="max-width:340px;">
                     </div>
                     <div class="flex-grow-1 text-lg-start text-center">
-                        <h3 class="fw-bold project-title">Portfolio Website</h3>
+                        <h3 class="fw-bold project-title">Portfolio Website V2</h3>
                         <p class="text-muted mb-3">A personal portfolio website </p>
                         <div class="d-flex flex-wrap gap-2 mb-3">
                             <span class="badge theme-badge">HTML</span>
@@ -1258,7 +1288,34 @@
                     </div>
                 </div>
             </div>
-   
+         <div class="col-12 project-card hidden-project mt-1">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
+                    <div class="position-relative flex-shrink-0">
+                        <img src="images/unioil.png"
+                             alt="ApexHubSpot Booking System"
+                             class="img-fluid rounded-4 shadow-lg project-img"
+                             style="max-width:340px;">
+                    </div>
+                    <div class="flex-grow-1 text-lg-start text-center">
+                        <h3 class="fw-bold project-title">Unioil Loyalty App</h3>
+                        <p class="text-muted mb-3">The Unioil Loyalty App is a customer rewards platform that allows users to earn and redeem points for every fuel purchase at Unioil stations.
+</p>
+                        <div class="d-flex flex-wrap gap-2 mb-3">
+                            <span class="badge theme-badge">Laravel</span>
+                            <span class="badge theme-badge">HTML</span>
+                            <span class="badge theme-badge">CSS</span>
+                            <span class="badge theme-badge">JavaScript</span>
+                            <span class="badge theme-badge">MySQL</span>
+                            <span class="badge theme-badge">Docker</span>
+                        </div>
+                        <a href="#"
+                           target="" rel="noopener noreferrer"
+                           class="btn btn-sm d-inline-flex align-items-center gap-2">
+                            <i class="fas fa-external-link-alt"></i> View Live
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="col-12 project-card hidden-project mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
