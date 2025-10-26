@@ -1196,7 +1196,7 @@
 
         <div class="row g-5 justify-content-center" id="project-list">
 
-                <!-- ==== PROJECT 2 ==== -->
+           
             <div class="col-12 project-card mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
@@ -1224,7 +1224,7 @@
                 </div>
             </div>
 
-            <!-- ==== PROJECT 3 (hidden initially) ==== -->
+          
                <div class="col-12 project-card mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
@@ -1258,7 +1258,7 @@
                     </div>
                 </div>
             </div>
-    <!-- ==== PROJECT 1 ==== -->
+   
             <div class="col-12 project-card hidden-project mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
@@ -1286,7 +1286,7 @@
                     </div>
                 </div>
             </div>
-            <!-- ==== PROJECT 4 (hidden initially) ==== -->
+        
             <div class="col-12 project-card hidden-project mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
@@ -1319,7 +1319,7 @@
                 </div>
             </div>
 
-             <!-- ==== PROJECT 4 (hidden initially) ==== -->
+            
             <div class="col-12 project-card hidden-project mt-1">
                 <div class="d-flex flex-column flex-lg-row align-items-center gap-4 p-4 rounded-4 theme-project-bg">
                     <div class="position-relative flex-shrink-0">
@@ -1406,11 +1406,9 @@
                 </div>
             </div>
 
-            <!-- ==== ADD MORE HIDDEN PROJECTS HERE ==== -->
-            <!-- Just copy a .project-card block, give it class "hidden-project" and fill the content. -->
-        </div>
+         </div>
 
-        <!-- SHOW MORE / SHOW LESS BUTTON -->
+      
         <div class="text-center mt-4">
             <button id="show-more-btn"
                     class="btn px-5 py-2"
@@ -1435,7 +1433,7 @@
         </div>
 
         <div class="row g-4 justify-content-center">
-            <!-- Contact Form -->
+           
             <div class="col-lg-7">
                 <div class="card shadow-sm border-0 h-100">
                     <div class="card-body p-4">
@@ -1466,10 +1464,10 @@
                 </div>
             </div>
 
-            <!-- Contact Info & Map -->
+       
             <div class="col-lg-5">
                 <div class="h-100 d-flex flex-column gap-3">
-                    <!-- Location Card -->
+                 
                     <div class="card shadow-sm border-0 flex-fill">
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
@@ -1564,11 +1562,9 @@ function updateLogo() {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     logo.src = isDark ? darkLogo : lightLogo;
 }
-
-// Run on page load
 updateLogo();
 
-// Run every time theme changes
+
 const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
         if (mutation.attributeName === 'data-theme') {
@@ -1577,7 +1573,7 @@ const observer = new MutationObserver((mutations) => {
     });
 });
 
-// Observe changes to data-theme attribute
+
 observer.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['data-theme']
@@ -1588,14 +1584,12 @@ observer.observe(document.documentElement, {
     emailjs.init("9Tu-1nFVeud2jfPRu");
 })();
 
-/* -------------------------------------------------
-   MULTI-THEME SWITCHER + MODAL
-   ------------------------------------------------- */
+
 const themeBtn   = document.getElementById('theme-settings-btn');
 const themeModal = new bootstrap.Modal(document.getElementById('themeModal'));
 const themeCards = document.querySelectorAll('.theme-card');
 
-/* Load saved theme (or default to "light") */
+
 const saved = localStorage.getItem('selectedTheme') || 'light';
 document.documentElement.setAttribute('data-theme', saved);
 highlightCard(saved);
@@ -1603,7 +1597,6 @@ highlightCard(saved);
 /* Open modal */
 themeBtn.addEventListener('click', () => themeModal.show());
 
-/* Click a card → apply theme */
 themeCards.forEach(card => {
   card.addEventListener('click', () => {
     const theme = card.dataset.theme;
@@ -1614,7 +1607,6 @@ themeCards.forEach(card => {
   });
 });
 
-/* Helper – add .selected to the active card */
 function highlightCard(active) {
   themeCards.forEach(c => c.classList.toggle('selected', c.dataset.theme === active));
 }
@@ -1654,7 +1646,6 @@ window.addEventListener('scroll', () => {
     document.getElementById('to-top').classList.toggle('show', window.scrollY > 300);
 });
 
-// Initial visibility
 document.querySelectorAll('.section-animate, .wave-divider').forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
 });
@@ -1697,9 +1688,7 @@ form.addEventListener('submit', e => {
 document.getElementById('to-top').addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
-/* -------------------------------------------------
-   HOVER BACKGROUND ICON + FLOATING LABEL (fixed)
-   ------------------------------------------------- */
+
 document.addEventListener('DOMContentLoaded', () => {
     const techIcons   = document.querySelectorAll('.tech-icon');
     const bgIcon      = document.getElementById('tech-bg-icon');
@@ -1711,10 +1700,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const iconUrl = icon.dataset.icon;
 
         icon.addEventListener('mouseenter', () => {
-            // 1. Show the large icon
-            bgImg.src = iconUrl;               // set source
-            bgIcon.style.opacity = '1';        // fade-in
-            // 2. Show the name in the top-right corner
+          
+            bgImg.src = iconUrl;              
+            bgIcon.style.opacity = '1';       
+          
             floatingLbl.textContent = name;
             floatingLbl.style.opacity = '0.7';
         });
@@ -1726,9 +1715,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-/* -------------------------------------------------
-   SHOW MORE / SHOW LESS – PROJECTS
-   ------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
     const btn         = document.getElementById('show-more-btn');
     const hiddenCards = document.querySelectorAll('.hidden-project');
